@@ -75,7 +75,7 @@ export default function HomePage() {
 
             <Link
               className="btn btn-outline"
-              href="/service-times"
+  href="/join-us"
             >
               Join Bible Study
             </Link>
