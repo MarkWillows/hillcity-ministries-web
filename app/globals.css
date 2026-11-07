@@ -1002,3 +1002,55 @@ body {
     padding: 12px;
   }
 }
+
+/* SERMONS PAGE — FINAL CLEANUP */
+
+.sermons-hero {
+  padding: 48px 20px;
+}
+
+.sermons-hero h1 {
+  margin: 0 0 12px;
+  font-size: clamp(34px, 4vw, 48px);
+}
+
+.sermons-hero p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.sermons-hero + .section {
+  padding-top: 28px;
+}
+
+.sermons-player-heading h2 {
+  font-size: 23px;
+  margin: 0 0 5px;
+}
+
+.sermons-player-heading p {
+  font-size: 14px;
+  margin: 0;
+}
+
+.sermons-encourage {
+  padding: 45px 20px;
+}
+
+.sermons-encourage h2 {
+  font-size: 29px;
+}
+
+.sermons-encourage p {
+  font-size: 18px;
+}
+
+@media (max-width: 768px) {
+  .sermons-hero {
+    padding: 35px 18px;
+  }
+
+  .sermons-player-heading h2 {
+    font-size: 20px;
+  }
+}
