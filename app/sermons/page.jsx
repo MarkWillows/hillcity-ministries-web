@@ -1,17 +1,15 @@
 
+"use client";
+
+import { useState } from "react";
 import {
   Headphones,
   BookOpen,
   CalendarDays,
   ArrowUpRight,
   ListMusic,
+  PlayCircle,
 } from "lucide-react";
-
-export const metadata = {
-  title: "Sermons & Teachings",
-  description:
-    "Listen to biblical sermons and teachings from Hillcity International Ministries.",
-};
 
 const soundcloudProfile =
   "https://soundcloud.com/hillcityinternational";
@@ -19,26 +17,43 @@ const soundcloudProfile =
 const soundcloudPlaylists =
   "https://soundcloud.com/hillcityinternational/sets";
 
-const soundcloudEmbed =
-  "https://w.soundcloud.com/player/?url=" +
-  encodeURIComponent(soundcloudProfile) +
-  "&color=%2331551b" +
-  "&auto_play=false" +
-  "&hide_related=true" +
-  "&show_comments=false" +
-  "&show_user=true" +
-  "&show_reposts=false" +
-  "&show_teaser=true" +
-  "&visual=false";
+// Add individual SoundCloud playlist URLs here.
+// Only include playlists whose actual links are known.
+const sermonSeries = [
+  {
+    id: "all",
+    title: "All Sermons",
+    url: soundcloudProfile,
+  },
+];
+
+// Creates a SoundCloud embed URL for a profile or playlist.
+function getEmbedUrl(url) {
+  return (
+    "https://w.soundcloud.com/player/?url=" +
+    encodeURIComponent(url) +
+    "&color=%2331551b" +
+    "&auto_play=false" +
+    "&hide_related=true" +
+    "&show_comments=false" +
+    "&show_user=true" +
+    "&show_reposts=false" +
+    "&show_teaser=true" +
+    "&visual=false"
+  );
+}
 
 export default function SermonsPage() {
+  const [activeSeries, setActiveSeries] = useState(
+    sermonSeries[0]
+  );
+
   return (
     <main>
       {/* PAGE INTRODUCTION */}
       <section className="sermons-hero">
         <div className="container centered">
           <h1>Sermons & Teachings</h1>
-
           <p>
             Grow in your relationship with Jesus Christ
             through the transforming power of God's Word.
@@ -46,12 +61,11 @@ export default function SermonsPage() {
         </div>
       </section>
 
-      {/* SERMON LIBRARY AND SERIES */}
+      {/* SERMON LIBRARY */}
       <section className="section">
         <div className="container">
           <div className="sermons-library-layout">
-
-            {/* MAIN SOUNDCLOUD PLAYER */}
+            {/* MAIN PLAYER */}
             <div className="sermons-player">
               <div className="sermons-player-heading">
                 <div className="sermons-player-icon">
@@ -59,7 +73,7 @@ export default function SermonsPage() {
                 </div>
 
                 <div>
-                  <h2>Listen to Our Sermons</h2>
+                  <h2>{activeSeries.title}</h2>
                   <p>
                     Select a teaching below to start listening.
                   </p>
@@ -67,14 +81,15 @@ export default function SermonsPage() {
               </div>
 
               <iframe
-                title="Hillcity SoundCloud Sermons"
+                key={activeSeries.id}
+                title={`${activeSeries.title} SoundCloud Player`}
                 width="100%"
                 height="550"
                 scrolling="no"
                 frameBorder="0"
                 allow="autoplay"
                 loading="lazy"
-                src={soundcloudEmbed}
+                src={getEmbedUrl(activeSeries.url)}
                 style={{
                   display: "block",
                   border: 0,
@@ -84,65 +99,73 @@ export default function SermonsPage() {
 
               <div className="sermons-player-footer">
                 <span>
-                  More teachings are available on SoundCloud.
+                  Listen and grow in God's Word.
                 </span>
 
                 <a
-                  href={soundcloudProfile}
+                  href={activeSeries.url}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Visit SoundCloud
+                  Open on SoundCloud
                   <ArrowUpRight size={16} />
                 </a>
               </div>
             </div>
 
-            {/* SERMON SERIES SIDEBAR */}
+            {/* SERIES SIDEBAR */}
             <aside className="sermon-series-sidebar">
               <div className="sermon-series-card">
                 <div className="sermon-series-symbol">
-                  <ListMusic size={28} />
+                  <ListMusic size={27} />
                 </div>
-
-                <span className="eyebrow">
-                  EXPLORE BY SERIES
-                </span>
 
                 <h3>Sermon Series</h3>
 
                 <p>
-                  Discover collections of teachings
-                  organized around biblical themes.
+                  Select a series to listen to its teachings.
                 </p>
+
+                <div className="sermon-series-list">
+                  {sermonSeries.map((series) => (
+                    <button
+                      type="button"
+                      key={series.id}
+                      className={
+                        "sermon-series-item " +
+                        (activeSeries.id === series.id
+                          ? "active"
+                          : "")
+                      }
+                      onClick={() =>
+                        setActiveSeries(series)
+                      }
+                    >
+                      <PlayCircle size={18} />
+                      <span>{series.title}</span>
+                    </button>
+                  ))}
+                </div>
 
                 <a
                   href={soundcloudPlaylists}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn btn-primary"
+                  className="sermon-series-all-link"
                 >
-                  Browse All Series
-                  <ArrowUpRight size={17} />
+                  View All Playlists
+                  <ArrowUpRight size={16} />
                 </a>
-
-                <p className="sermon-series-note">
-                  Opens our SoundCloud playlist library.
-                </p>
               </div>
             </aside>
-
           </div>
         </div>
       </section>
 
-      {/* SCRIPTURE SECTION */}
+      {/* SCRIPTURE */}
       <section className="section sermons-encourage">
         <div className="container centered">
-          <BookOpen
-            size={32}
-            color="#78923A"
-          />
+          <BookOpen size={32} color="#78923A" />
 
           <h2>Faith Comes by Hearing</h2>
 
@@ -155,13 +178,10 @@ export default function SermonsPage() {
         </div>
       </section>
 
-      {/* BIBLE STUDY INVITATION */}
+      {/* BIBLE STUDY */}
       <section className="section">
         <div className="container centered">
-          <CalendarDays
-            size={30}
-            color="#78923A"
-          />
+          <CalendarDays size={30} color="#78923A" />
 
           <h2>Join Our Weekly Bible Study</h2>
 
