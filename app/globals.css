@@ -1960,3 +1960,76 @@ body {
     padding: 24px;
   }
 }
+
+/* BIBLE STUDY RESOURCES PAGE */
+
+.bible-resources-section {
+  padding-top: 38px;
+  padding-bottom: 60px;
+}
+
+.bible-resources-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #31551b;
+  font-weight: 600;
+  text-decoration: none;
+  margin-bottom: 24px;
+}
+
+.bible-resources-panel {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 50px 35px;
+  border: 1px solid #e1e8d8;
+  border-radius: 20px;
+  background: #f8faf4;
+  text-align: center;
+}
+
+.bible-resources-icon {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eaf0df;
+  color: #31551b;
+  border-radius: 18px;
+}
+
+.bible-resources-panel h2 {
+  color: #31551b;
+  font-size: clamp(28px, 4vw, 38px);
+  margin-bottom: 14px;
+}
+
+.bible-resources-panel p {
+  max-width: 610px;
+  margin: 0 auto 28px;
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+.bible-resources-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+}
+
+@media (max-width: 600px) {
+  .bible-resources-panel {
+    padding: 32px 20px;
+  }
+
+  .bible-resources-actions {
+    flex-direction: column;
+  }
+
+  .bible-resources-actions .btn {
+    justify-content: center;
+  }
+}
