@@ -15,7 +15,7 @@ const aboutItems = [
 const navItems = [
   { label: "Sermons", href: "/sermons" },
   { label: "Join Us", href: "/join-us" },
-  { label: "Missions & Outreach", href: "/missions-outreach" },
+  { label: "Missions", href: "/missions" },
   { label: "Resources", href: "/resources" },
   { label: "Give / Partner", href: "/give" },
   { label: "Contact Us", href: "/contact" },
@@ -42,24 +42,17 @@ export default function Header() {
           <span>HILLCITY INTERNATIONAL MINISTRIES</span>
         </Link>
 
-        <nav
-          className="desktop-nav"
-          aria-label="Main navigation"
-        >
+        <nav className="desktop-nav" aria-label="Main navigation">
           <Link href="/">Home</Link>
 
           <div className="nav-dropdown">
             <Link href="/about">
-              About Hillcity
-              <ChevronDown size={14} />
+              About Hillcity <ChevronDown size={14} />
             </Link>
 
             <div className="dropdown-menu">
               {aboutItems.map((item) => (
-                <Link
-                  href={item.href}
-                  key={item.href}
-                >
+                <Link href={item.href} key={item.href}>
                   {item.label}
                 </Link>
               ))}
@@ -67,10 +60,7 @@ export default function Header() {
           </div>
 
           {navItems.map((item) => (
-            <Link
-              href={item.href}
-              key={item.href}
-            >
+            <Link href={item.href} key={item.href}>
               {item.label}
             </Link>
           ))}
@@ -79,14 +69,10 @@ export default function Header() {
         <button
           className="mobile-toggle"
           type="button"
-          aria-label={
-            mobileOpen ? "Close menu" : "Open menu"
-          }
+          aria-label={mobileOpen ? "Close menu" : "Open menu"}
           aria-expanded={mobileOpen}
           aria-controls="hillcity-mobile-nav"
-          onClick={() =>
-            setMobileOpen(!mobileOpen)
-          }
+          onClick={() => setMobileOpen(!mobileOpen)}
         >
           {mobileOpen ? <X /> : <Menu />}
         </button>
@@ -98,28 +84,17 @@ export default function Header() {
           className="mobile-nav"
           aria-label="Mobile navigation"
         >
-          <Link
-            href="/"
-            onClick={closeMenu}
-          >
-            Home
-          </Link>
+          <Link href="/" onClick={closeMenu}>Home</Link>
 
           <div className="mobile-about-row">
-            <Link
-              href="/about"
-              onClick={closeMenu}
-            >
+            <Link href="/about" onClick={closeMenu}>
               About Hillcity
             </Link>
-
             <button
               type="button"
               aria-label="Toggle About submenu"
               aria-expanded={aboutOpen}
-              onClick={() =>
-                setAboutOpen(!aboutOpen)
-              }
+              onClick={() => setAboutOpen(!aboutOpen)}
             >
               <ChevronDown size={18} />
             </button>
