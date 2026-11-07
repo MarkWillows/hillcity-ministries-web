@@ -1710,3 +1710,34 @@ body {
     padding-bottom: 28px;
   }
 }
+
+/* MISSIONS — LIVE INSTAGRAM FEED */
+
+.missions-instagram-feed {
+  width: 100%;
+  margin-top: 24px;
+  min-height: 200px;
+}
+
+.missions-instagram-follow {
+  display: flex;
+  justify-content: center;
+  margin-top: 22px;
+}
+
+.missions-instagram-follow .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+}
+
+@media (max-width: 600px) {
+  .missions-instagram-feed {
+    margin-top: 18px;
+  }
+
+  .missions-instagram-follow {
+    margin-top: 18px;
+  }
+}
