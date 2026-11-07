@@ -1421,3 +1421,78 @@ body {
     padding: 30px 0;
   }
 }
+
+/* JOIN US — COMPACT SPACING REFINEMENT */
+
+.join-hero {
+  padding: 38px 20px;
+}
+
+.join-hero h1 {
+  margin: 7px 0 10px;
+}
+
+.join-hero p {
+  line-height: 1.6;
+}
+
+.join-main-section {
+  padding-top: 28px;
+  padding-bottom: 28px;
+}
+
+.join-study-card {
+  padding: 28px 32px;
+}
+
+.join-study-icon {
+  width: 52px;
+  height: 52px;
+  margin-bottom: 12px;
+}
+
+.join-study-intro h2 {
+  margin: 8px 0;
+}
+
+.join-study-intro p {
+  line-height: 1.6;
+}
+
+.join-details-grid {
+  margin: 22px 0;
+}
+
+.join-detail {
+  padding: 15px 13px;
+}
+
+.join-welcome {
+  padding: 30px 20px;
+}
+
+.join-welcome h2 {
+  margin: 9px 0;
+}
+
+@media (max-width: 768px) {
+  .join-hero {
+    padding: 30px 18px;
+  }
+
+  .join-main-section {
+    padding: 22px 0;
+  }
+
+  .join-study-card {
+    padding: 22px 18px;
+  }
+
+  .join-details-grid {
+    margin: 18px 0;
+  }
+
+  .join-welcome {
+    padding: 26px 18px;
+  }
+}
