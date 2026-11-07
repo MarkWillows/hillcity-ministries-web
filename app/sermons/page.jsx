@@ -1,20 +1,23 @@
 
-import Link from "next/link";
 import {
   Headphones,
   BookOpen,
   CalendarDays,
   ArrowUpRight,
+  ListMusic,
 } from "lucide-react";
 
 export const metadata = {
   title: "Sermons & Teachings",
   description:
-    "Listen to biblical teachings from Hillcity International Ministries.",
+    "Listen to biblical sermons and teachings from Hillcity International Ministries.",
 };
 
 const soundcloudProfile =
   "https://soundcloud.com/hillcityinternational";
+
+const soundcloudPlaylists =
+  "https://soundcloud.com/hillcityinternational/sets";
 
 const soundcloudEmbed =
   "https://w.soundcloud.com/player/?url=" +
@@ -43,61 +46,103 @@ export default function SermonsPage() {
         </div>
       </section>
 
-      {/* SOUNDCLOUD SERMON LIBRARY */}
+      {/* SERMON LIBRARY AND SERIES */}
       <section className="section">
         <div className="container">
-          <div className="sermons-player">
-            <div className="sermons-player-heading">
-              <div className="sermons-player-icon">
-                <Headphones size={23} />
+          <div className="sermons-library-layout">
+
+            {/* MAIN SOUNDCLOUD PLAYER */}
+            <div className="sermons-player">
+              <div className="sermons-player-heading">
+                <div className="sermons-player-icon">
+                  <Headphones size={23} />
+                </div>
+
+                <div>
+                  <h2>Listen to Our Sermons</h2>
+                  <p>
+                    Select a teaching below to start listening.
+                  </p>
+                </div>
               </div>
 
-              <div>
-                <h2>Listen to Our Sermons</h2>
+              <iframe
+                title="Hillcity SoundCloud Sermons"
+                width="100%"
+                height="550"
+                scrolling="no"
+                frameBorder="0"
+                allow="autoplay"
+                loading="lazy"
+                src={soundcloudEmbed}
+                style={{
+                  display: "block",
+                  border: 0,
+                  borderRadius: "10px",
+                }}
+              />
+
+              <div className="sermons-player-footer">
+                <span>
+                  More teachings are available on SoundCloud.
+                </span>
+
+                <a
+                  href={soundcloudProfile}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Visit SoundCloud
+                  <ArrowUpRight size={16} />
+                </a>
+              </div>
+            </div>
+
+            {/* SERMON SERIES SIDEBAR */}
+            <aside className="sermon-series-sidebar">
+              <div className="sermon-series-card">
+                <div className="sermon-series-symbol">
+                  <ListMusic size={28} />
+                </div>
+
+                <span className="eyebrow">
+                  EXPLORE BY SERIES
+                </span>
+
+                <h3>Sermon Series</h3>
+
                 <p>
-                  Select a teaching below to start listening.
+                  Discover collections of teachings
+                  organized around biblical themes.
+                </p>
+
+                <a
+                  href={soundcloudPlaylists}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-primary"
+                >
+                  Browse All Series
+                  <ArrowUpRight size={17} />
+                </a>
+
+                <p className="sermon-series-note">
+                  Opens our SoundCloud playlist library.
                 </p>
               </div>
-            </div>
+            </aside>
 
-            <iframe
-              title="Hillcity SoundCloud Sermons"
-              width="100%"
-              height="550"
-              scrolling="no"
-              frameBorder="no"
-              allow="autoplay"
-              loading="lazy"
-              src={soundcloudEmbed}
-              style={{
-                display: "block",
-                border: 0,
-                borderRadius: "10px",
-              }}
-            />
-
-            <div className="sermons-player-footer">
-              <span>
-                Explore more teachings on SoundCloud.
-              </span>
-
-              <a
-                href={soundcloudProfile}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Visit SoundCloud
-                <ArrowUpRight size={16} />
-              </a>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* SCRIPTURE */}
+      {/* SCRIPTURE SECTION */}
       <section className="section sermons-encourage">
         <div className="container centered">
-          <BookOpen size={32} color="#78923A" />
+          <BookOpen
+            size={32}
+            color="#78923A"
+          />
 
           <h2>Faith Comes by Hearing</h2>
 
@@ -113,7 +158,10 @@ export default function SermonsPage() {
       {/* BIBLE STUDY INVITATION */}
       <section className="section">
         <div className="container centered">
-          <CalendarDays size={30} color="#78923A" />
+          <CalendarDays
+            size={30}
+            color="#78923A"
+          />
 
           <h2>Join Our Weekly Bible Study</h2>
 
