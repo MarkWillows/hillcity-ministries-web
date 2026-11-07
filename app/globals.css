@@ -2219,3 +2219,167 @@ body {
     flex-wrap: wrap;
   }
 }
+
+/* GIVE / PARTNER PAGE */
+
+.give-hero {
+  background: #f5f7ef;
+  padding: 58px 20px;
+  text-align: center;
+}
+
+.give-hero h1 {
+  color: #31551b;
+  font-size: clamp(38px, 5vw, 54px);
+  margin: 12px 0 14px;
+}
+
+.give-hero p {
+  max-width: 690px;
+  margin: 0 auto;
+  line-height: 1.7;
+  font-size: 17px;
+}
+
+.give-section {
+  padding: 58px 20px;
+}
+
+.give-section-soft {
+  background: #faf9f5;
+}
+
+.give-intro {
+  max-width: 700px;
+  margin: 0 auto 35px;
+}
+
+.give-intro > svg {
+  color: #78923a;
+}
+
+.give-page h2 {
+  color: #31551b;
+  font-size: clamp(28px, 3vw, 37px);
+  margin: 15px 0;
+}
+
+.give-intro p,
+.give-closing-text {
+  line-height: 1.75;
+  max-width: 690px;
+  margin: 0 auto;
+}
+
+.give-opportunities {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.give-card {
+  background: #fff;
+  border: 1px solid #e0e6d7;
+  border-radius: 16px;
+  padding: 30px 26px;
+}
+
+.give-icon,
+.give-donation-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #eaf0df;
+  color: #31551b;
+  width: 58px;
+  height: 58px;
+  border-radius: 14px;
+}
+
+.give-card h3 {
+  color: #31551b;
+  font-size: 24px;
+  margin: 18px 0 10px;
+}
+
+.give-card p {
+  line-height: 1.7;
+  margin: 0;
+}
+
+.give-donation-panel {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 40px 35px;
+  background: white;
+  border: 1px solid #e0e6d7;
+  border-radius: 18px;
+  text-align: center;
+}
+
+.give-donation-panel > p {
+  max-width: 620px;
+  margin: 0 auto 20px;
+  line-height: 1.7;
+}
+
+.give-pending {
+  display: inline-block;
+  background: #f5f7ef;
+  border: 1px solid #e0e6d7;
+  color: #31551b;
+  padding: 13px 22px;
+  border-radius: 10px;
+  font-weight: 600;
+  margin: 8px 0 22px;
+}
+
+.give-contact-note {
+  font-size: 15px;
+}
+
+.give-closing-text {
+  margin-bottom: 24px;
+}
+
+.give-trust-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin-top: 30px;
+  font-size: 13px;
+  color: #64745b;
+}
+
+.give-trust-note svg {
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .give-hero {
+    padding: 42px 18px;
+  }
+
+  .give-section {
+    padding: 40px 18px;
+  }
+
+  .give-opportunities {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .give-card {
+    padding: 24px;
+  }
+
+  .give-donation-panel {
+    padding: 28px 20px;
+  }
+
+  .give-trust-note {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
