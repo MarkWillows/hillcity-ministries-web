@@ -1277,3 +1277,147 @@ body {
   font-size: 26px;
   margin-bottom: 8px;
 }
+
+/* JOIN US PAGE */
+
+.join-hero {
+  background: #f4f7ee;
+  padding: 55px 20px;
+}
+
+.join-hero h1 {
+  color: #31551b;
+  font-size: clamp(36px, 4vw, 50px);
+  margin: 10px 0 14px;
+}
+
+.join-hero p {
+  max-width: 640px;
+  margin: 0 auto;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.join-main-section {
+  padding-top: 45px;
+  padding-bottom: 45px;
+}
+
+.join-study-card {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 36px;
+  background: #ffffff;
+  border: 1px solid #e1e9d9;
+  border-radius: 18px;
+  box-shadow: 0 8px 28px rgba(30, 55, 20, 0.05);
+}
+
+.join-study-intro {
+  text-align: center;
+}
+
+.join-study-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 18px;
+  border-radius: 15px;
+  background: #eaf1df;
+  color: #31551b;
+}
+
+.join-study-intro h2 {
+  font-size: clamp(27px, 3vw, 34px);
+  color: #31551b;
+  margin: 12px 0;
+}
+
+.join-study-intro p {
+  max-width: 580px;
+  margin: 0 auto;
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+.join-details-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin: 30px 0;
+}
+
+.join-detail {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 19px 15px;
+  border-radius: 12px;
+  background: #f4f7ee;
+  color: #31551b;
+}
+
+.join-detail svg {
+  flex-shrink: 0;
+}
+
+.join-detail span {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.7px;
+  margin-bottom: 6px;
+}
+
+.join-detail strong {
+  display: block;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.join-study-card > .btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.join-welcome {
+  background: #faf9f5;
+  padding: 45px 20px;
+}
+
+.join-welcome h2 {
+  color: #31551b;
+  font-size: 29px;
+  margin: 13px 0;
+}
+
+.join-welcome p {
+  max-width: 580px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+  .join-hero {
+    padding: 38px 18px;
+  }
+
+  .join-study-card {
+    padding: 24px 18px;
+  }
+
+  .join-details-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .join-main-section {
+    padding: 30px 0;
+  }
+}
