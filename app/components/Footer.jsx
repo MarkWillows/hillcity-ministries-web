@@ -17,9 +17,7 @@ export default function Footer() {
           <h4>Explore</h4>
           <Link href="/about">About Hillcity</Link>
           <Link href="/sermons">Sermons</Link>
-          <Link href="/missions-outreach">
-            Missions & Outreach
-          </Link>
+          <Link href="/missions">Missions</Link>
           <Link href="/resources">Resources</Link>
         </div>
 
@@ -28,7 +26,6 @@ export default function Footer() {
           <Link href="/join-us">Join Us</Link>
           <Link href="/give">Give / Partner</Link>
           <Link href="/contact">Contact Us</Link>
-
           <a
             href="https://www.instagram.com/hillcityglobalministries/"
             target="_blank"
