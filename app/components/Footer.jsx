@@ -25,9 +25,10 @@ export default function Footer() {
 
         <div>
           <h4>Connect</h4>
-          <Link href="/service-times">Service Times</Link>
+          <Link href="/join-us">Join Us</Link>
           <Link href="/give">Give / Partner</Link>
           <Link href="/contact">Contact Us</Link>
+
           <a
             href="https://www.instagram.com/hillcityglobalministries/"
             target="_blank"
