@@ -1,34 +1,81 @@
 
-"use client";
-
-import { useState } from "react";
 import {
   Headphones,
   BookOpen,
   CalendarDays,
   ArrowUpRight,
   ListMusic,
-  PlayCircle,
 } from "lucide-react";
+
+export const metadata = {
+  title: "Sermons & Teachings",
+  description:
+    "Listen to sermons and biblical teachings from Hillcity International Ministries.",
+};
 
 const soundcloudProfile =
   "https://soundcloud.com/hillcityinternational";
 
-const soundcloudPlaylists =
-  "https://soundcloud.com/hillcityinternational/sets";
-
-// Add individual SoundCloud playlist URLs here.
-// Only include playlists whose actual links are known.
 const sermonSeries = [
   {
-    id: "all",
-    title: "All Sermons",
-    url: soundcloudProfile,
+    title: "Relegating Religion, Restoring Relationship",
+    url: "https://soundcloud.com/hillcityinternational/sets/relegating-religion-restoring",
+  },
+  {
+    title: "The Balance of Grace and Faith",
+    url: "https://soundcloud.com/hillcityinternational/sets/the-balance-of-grace-and-faith",
+  },
+  {
+    title: "The Authority of the Believer",
+    url: "https://soundcloud.com/hillcityinternational/sets/the-authority-of-the-believer",
+  },
+  {
+    title: "The Set Time for Favor",
+    url: "https://soundcloud.com/hillcityinternational/sets/the-set-time-for-favor-series",
+  },
+  {
+    title: "Possessing the Land",
+    url: "https://soundcloud.com/hillcityinternational/sets/possessing-the-land-series",
+  },
+  {
+    title: "Prosperity of the Soul",
+    url: "https://soundcloud.com/hillcityinternational/sets/prosperity-of-the-soul-series",
+  },
+  {
+    title: "Renewing Your Mind",
+    url: "https://soundcloud.com/hillcityinternational/sets/renewing-your-mind-series",
+  },
+  {
+    title: "Walking in the Spirit",
+    url: "https://soundcloud.com/hillcityinternational/sets/walking-in-the-spirit",
+  },
+  {
+    title: "How to Hear God",
+    url: "https://soundcloud.com/hillcityinternational/sets/how-to-hear-god-series",
+  },
+  {
+    title: "Christ-Based Identity",
+    url: "https://soundcloud.com/hillcityinternational/sets/christ-based-identity-series",
+  },
+  {
+    title: "The Supremacy of Jesus Christ",
+    url: "https://soundcloud.com/hillcityinternational/sets/the-supremacy-of-jesus-christ",
+  },
+  {
+    title: "The Laws of God",
+    url: "https://soundcloud.com/hillcityinternational/sets/the-laws-of-god",
+  },
+  {
+    title: "The Law of Faith",
+    url: "https://soundcloud.com/hillcityinternational/sets/the-law-of-faith-series",
+  },
+  {
+    title: "Get Wisdom",
+    url: "https://soundcloud.com/hillcityinternational/sets/get-wisdom-series",
   },
 ];
 
-// Creates a SoundCloud embed URL for a profile or playlist.
-function getEmbedUrl(url) {
+function getSoundcloudEmbed(url) {
   return (
     "https://w.soundcloud.com/player/?url=" +
     encodeURIComponent(url) +
@@ -44,10 +91,6 @@ function getEmbedUrl(url) {
 }
 
 export default function SermonsPage() {
-  const [activeSeries, setActiveSeries] = useState(
-    sermonSeries[0]
-  );
-
   return (
     <main>
       {/* PAGE INTRODUCTION */}
@@ -61,11 +104,12 @@ export default function SermonsPage() {
         </div>
       </section>
 
-      {/* SERMON LIBRARY */}
+      {/* ALL SERMONS AND SERMON SERIES */}
       <section className="section">
         <div className="container">
           <div className="sermons-library-layout">
-            {/* MAIN PLAYER */}
+
+            {/* LEFT: ALL SERMONS */}
             <div className="sermons-player">
               <div className="sermons-player-heading">
                 <div className="sermons-player-icon">
@@ -73,7 +117,7 @@ export default function SermonsPage() {
                 </div>
 
                 <div>
-                  <h2>{activeSeries.title}</h2>
+                  <h2>All Sermons</h2>
                   <p>
                     Select a teaching below to start listening.
                   </p>
@@ -81,15 +125,14 @@ export default function SermonsPage() {
               </div>
 
               <iframe
-                key={activeSeries.id}
-                title={`${activeSeries.title} SoundCloud Player`}
+                title="Hillcity All Sermons"
                 width="100%"
                 height="550"
                 scrolling="no"
                 frameBorder="0"
                 allow="autoplay"
                 loading="lazy"
-                src={getEmbedUrl(activeSeries.url)}
+                src={getSoundcloudEmbed(soundcloudProfile)}
                 style={{
                   display: "block",
                   border: 0,
@@ -99,65 +142,61 @@ export default function SermonsPage() {
 
               <div className="sermons-player-footer">
                 <span>
-                  Listen and grow in God's Word.
+                  Explore more teachings on SoundCloud.
                 </span>
-
                 <a
-                  href={activeSeries.url}
+                  href={soundcloudProfile}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Open on SoundCloud
+                  Visit SoundCloud
                   <ArrowUpRight size={16} />
                 </a>
               </div>
             </div>
 
-            {/* SERIES SIDEBAR */}
+            {/* RIGHT: SERMON SERIES */}
             <aside className="sermon-series-sidebar">
               <div className="sermon-series-card">
                 <div className="sermon-series-symbol">
                   <ListMusic size={27} />
                 </div>
 
-                <h3>Sermon Series</h3>
-
+                <h2>Sermon Series</h2>
                 <p>
-                  Select a series to listen to its teachings.
+                  Explore our teachings by series.
+                  Select a playlist to listen.
                 </p>
 
-                <div className="sermon-series-list">
+                <div className="sermon-series-scroll">
                   {sermonSeries.map((series) => (
-                    <button
-                      type="button"
-                      key={series.id}
-                      className={
-                        "sermon-series-item " +
-                        (activeSeries.id === series.id
-                          ? "active"
-                          : "")
-                      }
-                      onClick={() =>
-                        setActiveSeries(series)
-                      }
+                    <div
+                      className="sermon-playlist"
+                      key={series.url}
                     >
-                      <PlayCircle size={18} />
-                      <span>{series.title}</span>
-                    </button>
+                      <h3>{series.title}</h3>
+
+                      <iframe
+                        title={`${series.title} Playlist`}
+                        width="100%"
+                        height="180"
+                        scrolling="no"
+                        frameBorder="0"
+                        allow="autoplay"
+                        loading="lazy"
+                        src={getSoundcloudEmbed(series.url)}
+                        style={{
+                          display: "block",
+                          border: 0,
+                          borderRadius: "8px",
+                        }}
+                      />
+                    </div>
                   ))}
                 </div>
-
-                <a
-                  href={soundcloudPlaylists}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="sermon-series-all-link"
-                >
-                  View All Playlists
-                  <ArrowUpRight size={16} />
-                </a>
               </div>
             </aside>
+
           </div>
         </div>
       </section>
@@ -166,14 +205,11 @@ export default function SermonsPage() {
       <section className="section sermons-encourage">
         <div className="container centered">
           <BookOpen size={32} color="#78923A" />
-
           <h2>Faith Comes by Hearing</h2>
-
           <p>
             "So then faith comes by hearing,
             and hearing by the word of God."
           </p>
-
           <span>Romans 10:17 (NKJV)</span>
         </div>
       </section>
@@ -182,13 +218,10 @@ export default function SermonsPage() {
       <section className="section">
         <div className="container centered">
           <CalendarDays size={30} color="#78923A" />
-
           <h2>Join Our Weekly Bible Study</h2>
-
           <p>
             Sundays | 6:00–6:30 PM Eastern Time
           </p>
-
           <a
             className="btn btn-primary"
             href="tel:6692749759"
