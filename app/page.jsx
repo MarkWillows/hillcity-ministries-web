@@ -120,7 +120,7 @@ export default function HomePage() {
               GROW IN THE WORD
             </span>
 
-            <h2>Sermons & Teachings</h2>
+            <h2>Sermons</h2>
 
             <p>
               Explore biblical teachings designed
