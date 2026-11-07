@@ -75,7 +75,7 @@ export default function HomePage() {
 
             <Link
               className="btn btn-outline"
-  href="/join-us"
+              href="/join-us"
             >
               Join Bible Study
             </Link>
@@ -165,7 +165,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* SERVICE TIMES SECTION */}
+      {/* JOIN US SECTION */}
       <section className="section">
         <div className="container service-panel">
           <div>
@@ -192,12 +192,13 @@ export default function HomePage() {
               </span>
             </div>
 
-            <a
+            <Link
               className="btn btn-primary"
-              href="tel:6692749759"
+              href="/join-us"
             >
-              Dial 669 274 9759
-            </a>
+              Join Us
+              <ArrowRight size={18} />
+            </Link>
           </div>
 
           <div className="service-verse">
@@ -262,9 +263,9 @@ export default function HomePage() {
           <div className="centered section-action">
             <Link
               className="btn btn-primary"
-              href="/missions-outreach"
+              href="/missions"
             >
-              Explore Our Missions
+              Explore Missions
               <ArrowRight size={18} />
             </Link>
           </div>
