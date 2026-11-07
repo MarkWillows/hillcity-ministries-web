@@ -1496,3 +1496,54 @@ body {
     padding: 26px 18px;
   }
 }
+
+/* JOIN US — ONLINE AND PHONE OPTIONS */
+
+.join-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.join-actions .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin: 0;
+  min-height: 52px;
+  text-align: center;
+}
+
+.join-phone-number {
+  display: inline-block;
+  color: #31551b;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.join-phone-number:hover {
+  color: #78923a;
+}
+
+.join-actions-note {
+  margin: 14px 0 0;
+  text-align: center;
+  color: #687364;
+  font-size: 13px;
+}
+
+@media (max-width: 600px) {
+  .join-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .join-actions .btn {
+    width: 100%;
+  }
+}
