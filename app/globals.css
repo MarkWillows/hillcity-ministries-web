@@ -1741,3 +1741,222 @@ body {
     margin-top: 18px;
   }
 }
+
+/* ======================================
+   HILLCITY RESOURCES PAGE
+====================================== */
+
+.resources-hero {
+  background: #f5f7ef;
+  padding: 65px 20px 60px;
+  text-align: center;
+}
+
+.resources-hero h1 {
+  color: #31551b;
+  font-size: clamp(38px, 5vw, 60px);
+  margin: 12px 0 14px;
+}
+
+.resources-hero p {
+  max-width: 720px;
+  margin: 0 auto;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.resources-featured {
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
+.resources-book-panel {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 48px;
+  align-items: center;
+  padding: 36px;
+  border: 1px solid #e1e8d8;
+  border-radius: 22px;
+  background: #fff;
+}
+
+.resources-book-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f5f7ef;
+  padding: 32px;
+  border-radius: 16px;
+}
+
+.resources-book-placeholder {
+  width: min(100%, 280px);
+  min-height: 365px;
+  padding: 35px 24px;
+  background: linear-gradient(
+    155deg,
+    #31551b 0%,
+    #4e7130 100%
+  );
+  color: #fff;
+  border-radius: 5px 14px 14px 5px;
+  box-shadow: 12px 14px 25px rgba(0, 0, 0, 0.14);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.resources-book-placeholder svg {
+  color: #f2b544;
+  margin-bottom: 26px;
+}
+
+.resources-book-placeholder span {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #f2b544;
+}
+
+.resources-book-placeholder h3 {
+  color: #fff;
+  font-size: 32px;
+  line-height: 1.2;
+  margin: 18px 0;
+}
+
+.resources-book-placeholder p {
+  color: #fff;
+  font-size: 14px;
+}
+
+.resources-book-content h2 {
+  color: #31551b;
+  font-size: clamp(32px, 4vw, 45px);
+  margin: 12px 0 8px;
+}
+
+.resources-book-subtitle {
+  color: #78923a;
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 18px;
+}
+
+.resources-book-content > p:not(
+  .resources-book-subtitle
+) {
+  line-height: 1.8;
+  font-size: 16px;
+  max-width: 560px;
+}
+
+.resources-book-author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #31551b;
+  font-weight: 600;
+  margin: 24px 0;
+}
+
+.resources-library {
+  padding-top: 55px;
+  padding-bottom: 65px;
+}
+
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 32px;
+}
+
+.resources-card {
+  background: #fff;
+  border: 1px solid #e1e8d8;
+  border-radius: 18px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.resources-card-icon {
+  width: 62px;
+  height: 62px;
+  background: #eaf0df;
+  color: #31551b;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.resources-card h3 {
+  color: #31551b;
+  font-size: 23px;
+  margin: 0 0 12px;
+}
+
+.resources-card p {
+  font-size: 15px;
+  line-height: 1.75;
+  margin: 0 0 22px;
+  flex-grow: 1;
+}
+
+.resources-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #31551b;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.resources-card-link:hover {
+  text-decoration: underline;
+}
+
+.resources-coming-soon {
+  color: #78923a;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .resources-book-panel {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .resources-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .resources-hero {
+    padding: 42px 18px;
+  }
+
+  .resources-book-panel {
+    padding: 20px;
+  }
+
+  .resources-book-visual {
+    padding: 22px;
+  }
+
+  .resources-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .resources-card {
+    padding: 24px;
+  }
+}
