@@ -2033,3 +2033,189 @@ body {
     justify-content: center;
   }
 }
+
+/* BIBLE STUDY RESOURCES */
+
+.bible-resources-hero {
+  background: #f5f7ef;
+  padding: 55px 20px 50px;
+}
+
+.bible-resources-hero h1 {
+  color: #31551b;
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: 1.2;
+  margin: 12px 0 15px;
+}
+
+.bible-resources-hero p {
+  max-width: 680px;
+  margin: 0 auto;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.bible-resources-section {
+  padding: 38px 0 65px;
+}
+
+.bible-resources-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.bible-resources-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #31551b;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.bible-resources-count {
+  color: #657255;
+  font-size: 14px;
+}
+
+.bible-resources-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.bible-resource-card {
+  border: 1px solid #e0e7d6;
+  border-radius: 16px;
+  padding: 25px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.bible-resource-card:hover {
+  box-shadow: 0 8px 25px rgba(49, 85, 27, 0.08);
+  transform: translateY(-2px);
+}
+
+.bible-resource-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.bible-resource-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 13px;
+  background: #e9efdf;
+  color: #31551b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bible-resource-type {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #78923a;
+}
+
+.bible-resource-card h2 {
+  font-size: 23px;
+  line-height: 1.3;
+  color: #31551b;
+  margin: 0 0 12px;
+}
+
+.bible-resource-card p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #4f5949;
+  margin: 0 0 18px;
+  flex-grow: 1;
+}
+
+.bible-resource-meta {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #78836e;
+  font-size: 12px;
+  margin-bottom: 20px;
+}
+
+.bible-resource-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.bible-resource-actions a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  flex: 1;
+  padding: 12px 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+.bible-resource-view {
+  background: #31551b;
+  color: #fff;
+}
+
+.bible-resource-view:hover {
+  background: #244014;
+}
+
+.bible-resource-download {
+  border: 1px solid #cbd8bc;
+  color: #31551b;
+  background: #f8faf5;
+}
+
+.bible-resource-download:hover {
+  background: #e9efdf;
+}
+
+@media (max-width: 950px) {
+  .bible-resources-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .bible-resources-hero {
+    padding: 38px 18px;
+  }
+
+  .bible-resources-section {
+    padding: 28px 0 45px;
+  }
+
+  .bible-resources-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .bible-resource-card {
+    padding: 21px;
+  }
+
+  .bible-resources-top {
+    flex-wrap: wrap;
+  }
+}
