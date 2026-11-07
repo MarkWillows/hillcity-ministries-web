@@ -1,9 +1,8 @@
 
+import Image from "next/image";
 import Link from "next/link";
 import {
-  BookOpen,
   BookMarked,
-  Download,
   Headphones,
   ArrowRight,
   ArrowUpRight,
@@ -14,11 +13,11 @@ import {
 export const metadata = {
   title: "Resources | Hillcity International Ministries",
   description:
-    "Explore Christian books, devotionals, Bible study resources, and sermons from Hillcity International Ministries.",
+    "Explore books, devotionals, Bible study resources, and sermons from Hillcity International Ministries.",
 };
 
-const amazonBookSearch =
-  "https://www.amazon.com/s?k=My+Royal+Identity+Peace+Bamidele";
+const amazonBookUrl =
+  "https://www.amazon.com/My-Royal-Identity-Peace-Bamidele/dp/9785960161";
 
 export default function ResourcesPage() {
   return (
@@ -26,8 +25,12 @@ export default function ResourcesPage() {
       {/* PAGE INTRODUCTION */}
       <section className="resources-hero">
         <div className="container centered">
-          <span className="eyebrow">GROW IN THE WORD</span>
+          <span className="eyebrow">
+            GROW IN THE WORD
+          </span>
+
           <h1>Resources</h1>
+
           <p>
             Discover resources to strengthen your faith,
             deepen your understanding of Scripture,
@@ -41,23 +44,40 @@ export default function ResourcesPage() {
         <div className="container">
           <div className="resources-book-panel">
             <div className="resources-book-visual">
-              <div className="resources-book-placeholder">
-                <BookOpen size={62} strokeWidth={1.4} />
-                <span>FEATURED BOOK</span>
-                <h3>My Royal Identity</h3>
-                <p>100 Biblical Confessions</p>
-              </div>
+              <a
+                href={amazonBookUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="View My Royal Identity on Amazon"
+              >
+                <Image
+                  src="/my-royal-identity.avif"
+                  alt="My Royal Identity book cover by Peace Bamidele"
+                  width={320}
+                  height={512}
+                  style={{
+                    width: "100%",
+                    maxWidth: "290px",
+                    height: "auto",
+                    display: "block",
+                    borderRadius: "6px",
+                    boxShadow:
+                      "0 12px 30px rgba(0,0,0,0.13)",
+                  }}
+                />
+              </a>
             </div>
 
             <div className="resources-book-content">
               <span className="eyebrow">
-                BOOKS & DEVOTIONALS
+                FEATURED BOOK
               </span>
 
               <h2>My Royal Identity</h2>
 
               <p className="resources-book-subtitle">
-                100 Biblical Confessions
+                A Pocket-Size Collection of 100 Power
+                Confessions of Who God Says You Are
               </p>
 
               <p>
@@ -76,11 +96,11 @@ export default function ResourcesPage() {
 
               <a
                 className="btn btn-primary"
-                href={amazonBookSearch}
+                href={amazonBookUrl}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Find on Amazon
+                Get the Book on Amazon
                 <ArrowUpRight size={18} />
               </a>
             </div>
