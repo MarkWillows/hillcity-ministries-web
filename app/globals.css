@@ -1126,3 +1126,64 @@ body {
     padding: 24px;
   }
 }
+
+/* CLICKABLE SERMON SERIES */
+
+.sermon-series-list {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin: 22px 0;
+}
+
+.sermon-series-item {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  width: 100%;
+  padding: 13px 14px;
+  border: 1px solid #e0e8d6;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #31551b;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sermon-series-item:hover {
+  background: #edf3e5;
+  border-color: #78923a;
+}
+
+.sermon-series-item.active {
+  background: #31551b;
+  color: #ffffff;
+  border-color: #31551b;
+}
+
+.sermon-series-item svg {
+  flex-shrink: 0;
+}
+
+.sermon-series-all-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #31551b;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.sermon-series-all-link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+  .sermons-library-layout {
+    grid-template-columns: 1fr;
+  }
+}
