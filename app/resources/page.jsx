@@ -138,9 +138,13 @@ export default function ResourcesPage() {
                 your personal study of God's Word.
               </p>
 
-              <span className="resources-coming-soon">
-                Resources coming soon
-              </span>
+<Link
+  href="/resources/bible-study"
+  className="resources-card-link"
+>
+  Explore Bible Study Resources
+  <ArrowRight size={17} />
+</Link>
             </article>
 
             <article className="resources-card">
