@@ -1251,3 +1251,29 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* SERMON SERIES — REFINED PLAYLIST TITLES */
+
+.sermon-playlist h3 {
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.45;
+  color: #31551b;
+  margin: 0 0 9px;
+  letter-spacing: 0;
+}
+
+.sermon-playlist {
+  padding: 12px;
+  margin-bottom: 0;
+}
+
+.sermon-series-scroll {
+  gap: 14px;
+}
+
+.sermon-series-card h2 {
+  font-size: 26px;
+  margin-bottom: 8px;
+}
