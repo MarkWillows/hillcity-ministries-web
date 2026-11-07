@@ -5,7 +5,8 @@ import {
   Clock3,
   Phone,
   HeartHandshake,
-  ArrowRight,
+  Video,
+  ExternalLink,
 } from "lucide-react";
 
 export const metadata = {
@@ -13,6 +14,9 @@ export const metadata = {
   description:
     "Join Hillcity International Ministries for weekly online Bible Study every Sunday from 6:00 to 6:30 PM Eastern Time.",
 };
+
+const meetingLink =
+  "https://join.freeconferencecall.com/hillcityintlministries";
 
 export default function JoinUsPage() {
   return (
@@ -56,6 +60,7 @@ export default function JoinUsPage() {
               </p>
             </div>
 
+            {/* GATHERING DETAILS */}
             <div className="join-details-grid">
               <div className="join-detail">
                 <CalendarDays size={23} />
@@ -79,20 +84,46 @@ export default function JoinUsPage() {
                 <Phone size={23} />
 
                 <div>
-                  <span>HOW TO JOIN</span>
-                  <strong>Dial 669 274 9759</strong>
+                  <span>JOIN BY PHONE</span>
+                  <strong>669 274 9759</strong>
                 </div>
               </div>
             </div>
 
+            {/* JOIN ONLINE */}
             <a
               className="btn btn-primary"
-              href="tel:6692749759"
+              href={meetingLink}
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              <Phone size={18} />
-              Join Bible Study
-              <ArrowRight size={17} />
+              <Video size={19} />
+              Join Bible Study Online
+              <ExternalLink size={17} />
             </a>
+
+            <p
+              style={{
+                textAlign: "center",
+                fontSize: "13px",
+                color: "#687364",
+                marginTop: "14px",
+                marginBottom: "0",
+              }}
+            >
+              Opens our FreeConferenceCall meeting page.
+              Prefer to call? Dial{" "}
+              <a
+                href="tel:6692749759"
+                style={{
+                  color: "#31551b",
+                  fontWeight: 600,
+                }}
+              >
+                669 274 9759
+              </a>
+              .
+            </p>
           </div>
         </div>
       </section>
