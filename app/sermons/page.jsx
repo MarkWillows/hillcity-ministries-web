@@ -8,7 +8,7 @@ import {
 } from "lucide-react";
 
 export const metadata = {
-  title: "Sermons & Teachings",
+  title: "Sermons",
   description:
     "Listen to sermons and biblical teachings from Hillcity International Ministries.",
 };
@@ -96,7 +96,7 @@ export default function SermonsPage() {
       {/* PAGE INTRODUCTION */}
       <section className="sermons-hero">
         <div className="container centered">
-          <h1>Sermons & Teachings</h1>
+          <h1>Sermons</h1>
           <p>
             Grow in your relationship with Jesus Christ
             through the transforming power of God's Word.
@@ -108,7 +108,6 @@ export default function SermonsPage() {
       <section className="section">
         <div className="container">
           <div className="sermons-library-layout">
-
             {/* LEFT: ALL SERMONS */}
             <div className="sermons-player">
               <div className="sermons-player-heading">
@@ -144,6 +143,7 @@ export default function SermonsPage() {
                 <span>
                   Explore more teachings on SoundCloud.
                 </span>
+
                 <a
                   href={soundcloudProfile}
                   target="_blank"
@@ -163,6 +163,7 @@ export default function SermonsPage() {
                 </div>
 
                 <h2>Sermon Series</h2>
+
                 <p>
                   Explore our teachings by series.
                   Select a playlist to listen.
@@ -196,7 +197,6 @@ export default function SermonsPage() {
                 </div>
               </div>
             </aside>
-
           </div>
         </div>
       </section>
@@ -205,11 +205,14 @@ export default function SermonsPage() {
       <section className="section sermons-encourage">
         <div className="container centered">
           <BookOpen size={32} color="#78923A" />
+
           <h2>Faith Comes by Hearing</h2>
+
           <p>
             "So then faith comes by hearing,
             and hearing by the word of God."
           </p>
+
           <span>Romans 10:17 (NKJV)</span>
         </div>
       </section>
@@ -218,10 +221,13 @@ export default function SermonsPage() {
       <section className="section">
         <div className="container centered">
           <CalendarDays size={30} color="#78923A" />
+
           <h2>Join Our Weekly Bible Study</h2>
+
           <p>
             Sundays | 6:00–6:30 PM Eastern Time
           </p>
+
           <a
             className="btn btn-primary"
             href="tel:6692749759"
