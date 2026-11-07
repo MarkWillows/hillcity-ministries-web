@@ -64,7 +64,6 @@ export default function JoinUsPage() {
             <div className="join-details-grid">
               <div className="join-detail">
                 <CalendarDays size={23} />
-
                 <div>
                   <span>DAY</span>
                   <strong>Every Sunday</strong>
@@ -73,7 +72,6 @@ export default function JoinUsPage() {
 
               <div className="join-detail">
                 <Clock3 size={23} />
-
                 <div>
                   <span>TIME</span>
                   <strong>6:00–6:30 PM ET</strong>
@@ -82,47 +80,43 @@ export default function JoinUsPage() {
 
               <div className="join-detail">
                 <Phone size={23} />
-
                 <div>
                   <span>JOIN BY PHONE</span>
-                  <strong>669 274 9759</strong>
+                  <a
+                    href="tel:6692749759"
+                    className="join-phone-number"
+                  >
+                    669 274 9759
+                  </a>
                 </div>
               </div>
             </div>
 
-            {/* JOIN ONLINE */}
-            <a
-              className="btn btn-primary"
-              href={meetingLink}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Video size={19} />
-              Join Bible Study Online
-              <ExternalLink size={17} />
-            </a>
-
-            <p
-              style={{
-                textAlign: "center",
-                fontSize: "13px",
-                color: "#687364",
-                marginTop: "14px",
-                marginBottom: "0",
-              }}
-            >
-              Opens our FreeConferenceCall meeting page.
-              Prefer to call? Dial{" "}
+            {/* JOINING OPTIONS */}
+            <div className="join-actions">
               <a
-                href="tel:6692749759"
-                style={{
-                  color: "#31551b",
-                  fontWeight: 600,
-                }}
+                className="btn btn-primary"
+                href={meetingLink}
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                669 274 9759
+                <Video size={19} />
+                Join Bible Study Online
+                <ExternalLink size={16} />
               </a>
-              .
+
+              <a
+                className="btn btn-primary"
+                href="tel:6692749759"
+              >
+                <Phone size={19} />
+                Dial In by Phone
+              </a>
+            </div>
+
+            <p className="join-actions-note">
+              Choose how you'd like to join us.
+              Phone dialing works on supported devices.
             </p>
           </div>
         </div>
