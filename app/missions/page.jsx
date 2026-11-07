@@ -1,5 +1,6 @@
 
 import Link from "next/link";
+import Script from "next/script";
 import {
   MapPin,
   Hospital,
@@ -114,7 +115,7 @@ export default function MissionsPage() {
         </div>
       </section>
 
-      {/* INSTAGRAM MISSIONS UPDATES */}
+      {/* LIVE INSTAGRAM MISSIONS FEED */}
       <section className="section missions-updates">
         <div className="container">
           <div className="missions-social-panel">
@@ -130,22 +131,24 @@ export default function MissionsPage() {
               <h2>Missions in Action</h2>
 
               <p>
-                Follow our missions activities,
-                outreach stories, and updates
-                from the field.
+                Explore our latest outreach activities,
+                stories, and updates from the field.
               </p>
             </div>
 
-            {/* Live Instagram feed can be added here */}
-            <div
-              id="hillcity-missions-feed"
-              className="missions-feed-area"
-            >
-              <p>
-                Stay connected with our latest
-                missions updates on Instagram.
-              </p>
+            <div className="missions-instagram-feed">
+              <Script
+                src="https://elfsightcdn.com/platform.js"
+                strategy="afterInteractive"
+              />
 
+              <div
+                className="elfsight-app-1aedeb70-6840-4f7e-a1a1-c62dfb7bf675"
+                data-elfsight-app-lazy
+              />
+            </div>
+
+            <div className="missions-instagram-follow">
               <a
                 className="btn btn-primary"
                 href="https://www.instagram.com/hillcitymissions/"
