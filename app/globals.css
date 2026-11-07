@@ -1033,6 +1033,70 @@ body {
   margin: 0;
 }
 
+/* SERMON SERIES PLAYLIST LIBRARY */
+
+.sermons-library-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 2.2fr) minmax(300px, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.sermons-library-layout .sermons-player {
+  min-width: 0;
+}
+
+.sermon-series-sidebar {
+  min-width: 0;
+}
+
+.sermon-series-card h2 {
+  font-size: 28px;
+  margin: 14px 0 10px;
+  color: #31551b;
+}
+
+.sermon-series-scroll {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-height: 600px;
+  overflow-y: auto;
+  margin-top: 22px;
+  padding-right: 8px;
+  scrollbar-width: thin;
+  scrollbar-color: #aab99b #f4f7ee;
+}
+
+.sermon-playlist {
+  background: #ffffff;
+  border: 1px solid #e0e8d6;
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.sermon-playlist h3 {
+  font-size: 15px;
+  line-height: 1.5;
+  font-weight: 600;
+  color: #31551b;
+  margin: 0 0 12px;
+}
+
+.sermon-playlist iframe {
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  .sermons-library-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sermon-series-scroll {
+    max-height: 500px;
+  }
+}
+
 .sermons-encourage {
   padding: 45px 20px;
 }
