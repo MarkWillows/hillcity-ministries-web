@@ -26,25 +26,25 @@ const impactAreas = [
   {
     title: "Missions & Outreach",
     description:
-      "Supporting street, hospital, online, and prison evangelism through our SHOP mandate.",
+      "Street, hospital, online, and prison evangelism through our SHOP mandate.",
     Icon: Globe,
   },
   {
     title: "Biblical Teaching",
     description:
-      "Making Bible studies, sermons, and Scripture-based resources accessible to more people.",
+      "Bible studies, sermons, and resources that equip believers.",
     Icon: BookOpen,
   },
   {
     title: "Compassionate Care",
     description:
-      "Extending practical support, encouragement, and the love of Christ to people in need.",
+      "Practical support and encouragement for people in need.",
     Icon: HandHeart,
   },
   {
     title: "Ministry Growth",
     description:
-      "Helping us expand opportunities to share the gospel and serve more communities.",
+      "Expanding our capacity to serve communities and advance the mission.",
     Icon: Users,
   },
 ];
@@ -63,46 +63,33 @@ export default function GivePage() {
 
   return (
     <main className="give-page">
-      {/* PAGE INTRODUCTION */}
       <section className="give-hero">
         <div className="container centered">
           <span className="eyebrow">PARTNER WITH THE MISSION</span>
-
           <h1>Give / Partner</h1>
-
           <p>
-            Help us share Christ, transform lives,
-            and reach the world through the power
-            of the gospel.
+            Your generosity helps us share Christ,
+            serve communities, and transform lives.
           </p>
-
           <a
             href={donationUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-primary"
           >
-            Give Now
-            <ArrowUpRight size={18} />
+            Give Now <ArrowUpRight size={18} />
           </a>
         </div>
       </section>
 
-      {/* WHY GIVING MATTERS */}
       <section className="give-main-section">
         <div className="container">
           <div className="give-intro centered">
             <HeartHandshake size={34} />
-
-            <h2>Your Giving Makes a Difference</h2>
-
+            <h2>Where Your Giving Goes</h2>
             <p>
-              Through your generosity, Hillcity
-              International Ministries proclaims
-              the gospel of Jesus Christ, equips
-              believers through God's Word, and
-              extends compassionate outreach
-              to individuals and communities.
+              Every contribution supports the mission
+              and outreach of Hillcity International Ministries.
             </p>
           </div>
 
@@ -112,7 +99,6 @@ export default function GivePage() {
                 <div className="give-impact-icon">
                   <Icon size={25} />
                 </div>
-
                 <h3>{title}</h3>
                 <p>{description}</p>
               </article>
@@ -121,29 +107,24 @@ export default function GivePage() {
         </div>
       </section>
 
-      {/* DONATION METHODS */}
       <section className="give-main-section give-methods-section">
         <div className="container">
           <div className="section-heading centered">
             <span className="eyebrow">WAYS TO GIVE</span>
-
-            <h2>Choose How You'd Like to Give</h2>
-
+            <h2>Choose Your Giving Method</h2>
             <p>
-              Whether you give once or become a monthly
-              partner, your generosity helps advance
-              the mission of Hillcity.
+              Give securely online, through Zelle,
+              or by direct bank transfer.
             </p>
           </div>
 
           <div className="give-methods-grid">
-            {/* GIVEBUTTER */}
             <article className="give-method-card give-method-featured">
               <div className="give-method-logo-wrap">
                 <img
                   src="/givebutter-logo.jpeg"
                   alt="Givebutter"
-                  className="give-method-logo"
+                  className="give-method-logo givebutter-logo"
                 />
               </div>
 
@@ -153,15 +134,13 @@ export default function GivePage() {
               </div>
 
               <p>
-                Make a secure one-time donation or
-                become a recurring monthly partner
-                through Givebutter.
+                Make a one-time gift or become
+                a monthly giving partner.
               </p>
 
               <div className="give-method-details">
-                <span>One-time donations</span>
-                <span>Monthly giving</span>
-                <span>Credit & debit cards</span>
+                <span>One-time or monthly</span>
+                <span>Card and other supported payment options</span>
               </div>
 
               <a
@@ -170,12 +149,10 @@ export default function GivePage() {
                 rel="noopener noreferrer"
                 className="btn btn-primary give-method-button"
               >
-                Give Now
-                <ArrowUpRight size={17} />
+                Give Now <ArrowUpRight size={17} />
               </a>
             </article>
 
-            {/* ZELLE */}
             <article className="give-method-card">
               <div className="give-method-logo-wrap">
                 <img
@@ -191,9 +168,7 @@ export default function GivePage() {
               </div>
 
               <p>
-                Send your gift directly to Hillcity
-                International Ministries through
-                your bank's Zelle service.
+                Send your gift using the email below.
               </p>
 
               <div className="give-zelle-box">
@@ -211,13 +186,10 @@ export default function GivePage() {
               </button>
 
               <p className="give-method-small">
-                Please confirm the recipient is
-                Hillcity International Ministries Inc
-                before sending.
+                Confirm the recipient name before sending.
               </p>
             </article>
 
-            {/* BANK OF AMERICA */}
             <article className="give-method-card">
               <div className="give-method-logo-wrap">
                 <img
@@ -233,17 +205,11 @@ export default function GivePage() {
               </div>
 
               <p>
-                Support the ministry through a direct
-                transfer to our official Bank of
-                America account.
+                Transfer directly to the ministry's
+                Bank of America account.
               </p>
 
               <div className="give-bank-details">
-                <div>
-                  <span>BANK</span>
-                  <strong>Bank of America</strong>
-                </div>
-
                 <div>
                   <span>ACCOUNT NAME</span>
                   <strong>
@@ -261,39 +227,23 @@ export default function GivePage() {
               </a>
 
               <p className="give-method-small">
-                For security, account and routing
-                information is provided upon request.
+                Account details are shared upon request.
               </p>
             </article>
           </div>
         </div>
       </section>
 
-      {/* PARTNERSHIP INVITATION */}
       <section className="give-partner-section">
         <div className="container centered">
           <HeartHandshake size={34} />
-
-          <h2>Become a Ministry Partner</h2>
-
+          <h2>Partner Beyond Giving</h2>
           <p>
-            Your partnership goes beyond financial
-            support. Through giving, prayer, and
-            service, you can help us share the love
-            of Jesus Christ with more people.
+            You can also support our mission
+            through prayer and volunteering.
           </p>
 
           <div className="give-partner-actions">
-            <a
-              href={donationUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-primary"
-            >
-              Become a Giving Partner
-              <ArrowUpRight size={17} />
-            </a>
-
             <Link href="/contact" className="btn btn-outline">
               Volunteer or Connect
               <ArrowRight size={17} />
