@@ -2707,3 +2707,57 @@ body {
     text-align: left;
   }
 }
+
+/* GIVE PAGE — FINAL REFINEMENTS */
+
+.give-page .give-method-logo-wrap {
+  height: 82px;
+  margin-bottom: 14px;
+}
+
+.give-page .give-method-logo {
+  max-width: 190px;
+  max-height: 75px;
+}
+
+.give-page .givebutter-logo {
+  width: 190px;
+  max-width: 100%;
+  max-height: 78px;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.give-page .give-method-card {
+  gap: 0;
+}
+
+.give-page .give-method-card > p:not(.give-method-small) {
+  min-height: 48px;
+  margin-bottom: 18px;
+}
+
+.give-page .give-zelle-box,
+.give-page .give-bank-details {
+  margin-bottom: 22px;
+}
+
+.give-page .give-method-details {
+  margin-bottom: 25px;
+}
+
+.give-page .give-copy-button,
+.give-page .give-bank-button,
+.give-page .give-method-button {
+  min-height: 45px;
+}
+
+.give-page .give-method-small {
+  margin-top: 15px;
+}
+
+@media (max-width: 600px) {
+  .give-page .give-method-card > p:not(.give-method-small) {
+    min-height: 0;
+  }
+}
