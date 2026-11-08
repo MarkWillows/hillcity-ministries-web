@@ -1,75 +1,118 @@
 
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import {
-  HeartHandshake,
-  Heart,
-  HandHeart,
-  Users,
   ArrowRight,
+  ArrowUpRight,
+  Check,
+  Copy,
+  CreditCard,
+  HeartHandshake,
+  HandHeart,
+  BookOpen,
+  Globe,
+  Landmark,
   Mail,
   ShieldCheck,
+  Users,
 } from "lucide-react";
 
-export const metadata = {
-  title: "Give / Partner | Hillcity International Ministries",
-  description:
-    "Partner with Hillcity International Ministries through giving, prayer, and service.",
-};
+const donationUrl = "https://givebutter.com/givetohillcity";
+const zelleEmail = "hillcityintlministries@gmail.com";
 
-const opportunities = [
+const impactAreas = [
   {
-    title: "Give",
+    title: "Missions & Outreach",
     description:
-      "Support the work of the ministry as we share the gospel and extend the love of Christ to more people.",
+      "Supporting street, hospital, online, and prison evangelism through our SHOP mandate.",
+    Icon: Globe,
+  },
+  {
+    title: "Biblical Teaching",
+    description:
+      "Making Bible studies, sermons, and Scripture-based resources accessible to more people.",
+    Icon: BookOpen,
+  },
+  {
+    title: "Compassionate Care",
+    description:
+      "Extending practical support, encouragement, and the love of Christ to people in need.",
     Icon: HandHeart,
   },
   {
-    title: "Pray",
+    title: "Ministry Growth",
     description:
-      "Stand with us in prayer for lives to be transformed and for the gospel to reach more communities.",
-    Icon: Heart,
-  },
-  {
-    title: "Volunteer",
-    description:
-      "Join us in serving others through evangelism, compassionate outreach, and ministry activities.",
+      "Helping us expand opportunities to share the gospel and serve more communities.",
     Icon: Users,
   },
 ];
 
 export default function GivePage() {
+  const [copied, setCopied] = useState(false);
+
+  async function copyZelleEmail() {
+    try {
+      await navigator.clipboard.writeText(zelleEmail);
+      setCopied(true);
+    } catch {
+      window.prompt("Copy Hillcity's Zelle email:", zelleEmail);
+    }
+  }
+
   return (
     <main className="give-page">
+      {/* PAGE INTRODUCTION */}
       <section className="give-hero">
         <div className="container centered">
-          <span className="eyebrow">PARTNER WITH HILLCITY</span>
+          <span className="eyebrow">PARTNER WITH THE MISSION</span>
+
           <h1>Give / Partner</h1>
+
           <p>
-            Together, we can share the gospel, serve our
-            communities, and reach more lives with the
-            love of Jesus Christ.
+            Help us share Christ, transform lives,
+            and reach the world through the power
+            of the gospel.
           </p>
+
+          <a
+            href={donationUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-primary"
+          >
+            Give Now
+            <ArrowUpRight size={18} />
+          </a>
         </div>
       </section>
 
-      <section className="give-section">
+      {/* WHY GIVING MATTERS */}
+      <section className="give-main-section">
         <div className="container">
           <div className="give-intro centered">
             <HeartHandshake size={34} />
-            <h2>Be Part of the Mission</h2>
+
+            <h2>Your Giving Makes a Difference</h2>
+
             <p>
-              Your generosity, prayers, and service help
-              advance our mission of sharing Christ,
-              transforming lives, and reaching the world.
+              Through your generosity, Hillcity
+              International Ministries proclaims
+              the gospel of Jesus Christ, equips
+              believers through God's Word, and
+              extends compassionate outreach
+              to individuals and communities.
             </p>
           </div>
 
-          <div className="give-opportunities">
-            {opportunities.map(({ title, description, Icon }) => (
-              <article className="give-card" key={title}>
-                <div className="give-icon">
-                  <Icon size={27} />
+          <div className="give-impact-grid">
+            {impactAreas.map(({ title, description, Icon }) => (
+              <article className="give-impact-card" key={title}>
+                <div className="give-impact-icon">
+                  <Icon size={25} />
                 </div>
+
                 <h3>{title}</h3>
                 <p>{description}</p>
               </article>
@@ -78,57 +121,190 @@ export default function GivePage() {
         </div>
       </section>
 
-      <section className="give-section give-section-soft">
+      {/* DONATION METHODS */}
+      <section className="give-main-section give-methods-section">
         <div className="container">
-          <div className="give-donation-panel">
-            <div className="give-donation-icon">
-              <HandHeart size={34} />
-            </div>
+          <div className="section-heading centered">
+            <span className="eyebrow">WAYS TO GIVE</span>
 
-            <h2>Support the Work of the Ministry</h2>
+            <h2>Choose How You'd Like to Give</h2>
+
             <p>
-              Your financial partnership helps us
-              proclaim God's Word and extend compassionate
-              outreach to those in need.
+              Whether you give once or become a monthly
+              partner, your generosity helps advance
+              the mission of Hillcity.
             </p>
+          </div>
 
-            <div className="give-pending">
-              Online giving information will be available soon.
-            </div>
+          <div className="give-methods-grid">
+            {/* GIVEBUTTER */}
+            <article className="give-method-card give-method-featured">
+              <div className="give-method-logo-wrap">
+                <img
+                  src="/givebutter-logo.jpeg"
+                  alt="Givebutter"
+                  className="give-method-logo"
+                />
+              </div>
 
-            <p className="give-contact-note">
-              For partnership or giving inquiries, please
-              contact our ministry team.
-            </p>
+              <div className="give-method-heading">
+                <CreditCard size={21} />
+                <h3>Give Online</h3>
+              </div>
 
-            <Link className="btn btn-primary" href="/contact">
-              Contact Us
-              <ArrowRight size={18} />
-            </Link>
+              <p>
+                Make a secure one-time donation or
+                become a recurring monthly partner
+                through Givebutter.
+              </p>
+
+              <div className="give-method-details">
+                <span>One-time donations</span>
+                <span>Monthly giving</span>
+                <span>Credit & debit cards</span>
+              </div>
+
+              <a
+                href={donationUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-primary give-method-button"
+              >
+                Give Now
+                <ArrowUpRight size={17} />
+              </a>
+            </article>
+
+            {/* ZELLE */}
+            <article className="give-method-card">
+              <div className="give-method-logo-wrap">
+                <img
+                  src="/zelle-logo.jpeg"
+                  alt="Zelle"
+                  className="give-method-logo"
+                />
+              </div>
+
+              <div className="give-method-heading">
+                <Mail size={21} />
+                <h3>Give Through Zelle</h3>
+              </div>
+
+              <p>
+                Send your gift directly to Hillcity
+                International Ministries through
+                your bank's Zelle service.
+              </p>
+
+              <div className="give-zelle-box">
+                <span>ZELLE EMAIL</span>
+                <strong>{zelleEmail}</strong>
+              </div>
+
+              <button
+                type="button"
+                className="give-copy-button"
+                onClick={copyZelleEmail}
+              >
+                {copied ? <Check size={17} /> : <Copy size={17} />}
+                {copied ? "Email Copied" : "Copy Zelle Email"}
+              </button>
+
+              <p className="give-method-small">
+                Please confirm the recipient is
+                Hillcity International Ministries Inc
+                before sending.
+              </p>
+            </article>
+
+            {/* BANK OF AMERICA */}
+            <article className="give-method-card">
+              <div className="give-method-logo-wrap">
+                <img
+                  src="/bank-of-america-logo.jpeg"
+                  alt="Bank of America"
+                  className="give-method-logo"
+                />
+              </div>
+
+              <div className="give-method-heading">
+                <Landmark size={21} />
+                <h3>Direct Bank Transfer</h3>
+              </div>
+
+              <p>
+                Support the ministry through a direct
+                transfer to our official Bank of
+                America account.
+              </p>
+
+              <div className="give-bank-details">
+                <div>
+                  <span>BANK</span>
+                  <strong>Bank of America</strong>
+                </div>
+
+                <div>
+                  <span>ACCOUNT NAME</span>
+                  <strong>
+                    Hillcity International Ministries Inc
+                  </strong>
+                </div>
+              </div>
+
+              <a
+                href={`mailto:${zelleEmail}?subject=Hillcity%20Bank%20Transfer%20Instructions`}
+                className="give-bank-button"
+              >
+                Request Transfer Details
+                <ArrowRight size={17} />
+              </a>
+
+              <p className="give-method-small">
+                For security, account and routing
+                information is provided upon request.
+              </p>
+            </article>
           </div>
         </div>
       </section>
 
-      <section className="give-section">
+      {/* PARTNERSHIP INVITATION */}
+      <section className="give-partner-section">
         <div className="container centered">
-          <Mail size={30} color="#78923A" />
-          <h2>Interested in Partnering?</h2>
-          <p className="give-closing-text">
-            Whether you'd like to volunteer, collaborate,
-            or support our outreach initiatives, we'd love
-            to hear from you.
+          <HeartHandshake size={34} />
+
+          <h2>Become a Ministry Partner</h2>
+
+          <p>
+            Your partnership goes beyond financial
+            support. Through giving, prayer, and
+            service, you can help us share the love
+            of Jesus Christ with more people.
           </p>
 
-          <Link className="btn btn-primary" href="/contact">
-            Get in Touch
-            <ArrowRight size={18} />
-          </Link>
+          <div className="give-partner-actions">
+            <a
+              href={donationUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-primary"
+            >
+              Become a Giving Partner
+              <ArrowUpRight size={17} />
+            </a>
+
+            <Link href="/contact" className="btn btn-outline">
+              Volunteer or Connect
+              <ArrowRight size={17} />
+            </Link>
+          </div>
 
           <div className="give-trust-note">
             <ShieldCheck size={18} />
             <span>
-              Hillcity International Ministries is a
-              recognized 501(c)(3) nonprofit organization.
+              Hillcity International Ministries Inc
+              is a recognized 501(c)(3) nonprofit organization.
             </span>
           </div>
         </div>
