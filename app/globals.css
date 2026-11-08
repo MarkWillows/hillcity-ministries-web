@@ -2383,3 +2383,327 @@ body {
     text-align: left;
   }
 }
+
+/* =========================================
+   HILLCITY GIVE / PARTNER PAGE — FINAL
+========================================= */
+
+.give-page .give-hero {
+  background: #f5f7ef;
+  padding: 55px 20px 50px;
+  text-align: center;
+}
+
+.give-page .give-hero h1 {
+  color: #31551b;
+  font-size: clamp(38px, 5vw, 54px);
+  margin: 10px 0 12px;
+}
+
+.give-page .give-hero p {
+  max-width: 660px;
+  margin: 0 auto 24px;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.give-main-section {
+  padding: 50px 20px;
+}
+
+.give-page .give-intro {
+  max-width: 760px;
+  margin: 0 auto 30px;
+}
+
+.give-page .give-intro > svg {
+  color: #78923a;
+}
+
+.give-page h2 {
+  color: #31551b;
+  font-size: clamp(28px, 3vw, 37px);
+  margin: 12px 0;
+}
+
+.give-page .give-intro p {
+  line-height: 1.75;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.give-impact-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.give-impact-card {
+  background: #fff;
+  border: 1px solid #e0e7d7;
+  border-radius: 15px;
+  padding: 23px;
+}
+
+.give-impact-icon {
+  width: 52px;
+  height: 52px;
+  background: #eaf0df;
+  color: #31551b;
+  border-radius: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.give-impact-card h3 {
+  color: #31551b;
+  font-size: 19px;
+  margin: 0 0 10px;
+}
+
+.give-impact-card p {
+  font-size: 14px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.give-methods-section {
+  background: #faf9f5;
+}
+
+.give-methods-section .section-heading {
+  max-width: 760px;
+  margin: 0 auto 30px;
+}
+
+.give-methods-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  align-items: stretch;
+}
+
+.give-method-card {
+  background: #fff;
+  border: 1px solid #dfe6d7;
+  border-radius: 18px;
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.give-method-featured {
+  border: 2px solid #78923a;
+}
+
+.give-method-logo-wrap {
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 18px;
+}
+
+.give-method-logo {
+  display: block;
+  max-width: 180px;
+  max-height: 66px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.give-method-heading {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #31551b;
+  margin-bottom: 12px;
+}
+
+.give-method-heading h3 {
+  font-size: 23px;
+  color: #31551b;
+  margin: 0;
+}
+
+.give-method-card > p {
+  font-size: 15px;
+  line-height: 1.7;
+  margin: 0 0 20px;
+}
+
+.give-method-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 5px 0 25px;
+}
+
+.give-method-details span {
+  position: relative;
+  padding-left: 22px;
+  color: #4c5d43;
+  font-size: 14px;
+}
+
+.give-method-details span::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #78923a;
+  font-weight: 700;
+}
+
+.give-method-button {
+  margin-top: auto;
+  justify-content: center;
+}
+
+.give-zelle-box,
+.give-bank-details {
+  background: #f6f8f2;
+  border: 1px solid #e2e9da;
+  border-radius: 11px;
+  padding: 16px;
+  margin: 5px 0 16px;
+}
+
+.give-zelle-box span,
+.give-bank-details span {
+  display: block;
+  color: #68775d;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.7px;
+  margin-bottom: 7px;
+}
+
+.give-zelle-box strong,
+.give-bank-details strong {
+  display: block;
+  color: #31551b;
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+.give-bank-details > div + div {
+  margin-top: 15px;
+}
+
+.give-copy-button,
+.give-bank-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  padding: 13px 14px;
+  background: #f5f7ef;
+  color: #31551b;
+  border: 1px solid #bfcfb1;
+  border-radius: 9px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  margin-top: auto;
+}
+
+.give-copy-button:hover,
+.give-bank-button:hover {
+  background: #e9efdf;
+}
+
+.give-method-card .give-method-small {
+  font-size: 12px;
+  color: #66735e;
+  line-height: 1.6;
+  margin: 14px 0 0;
+}
+
+.give-partner-section {
+  padding: 55px 20px;
+  text-align: center;
+}
+
+.give-partner-section > .container > svg {
+  color: #78923a;
+}
+
+.give-partner-section p {
+  max-width: 690px;
+  margin: 0 auto 24px;
+  line-height: 1.75;
+}
+
+.give-partner-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 13px;
+}
+
+.give-page .give-trust-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin-top: 27px;
+  color: #64745b;
+  font-size: 13px;
+}
+
+.give-page .give-trust-note svg {
+  flex-shrink: 0;
+}
+
+@media (max-width: 1000px) {
+  .give-impact-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .give-methods-grid {
+    grid-template-columns: 1fr;
+    max-width: 650px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .give-page .give-hero {
+    padding: 40px 18px;
+  }
+
+  .give-main-section,
+  .give-partner-section {
+    padding: 38px 18px;
+  }
+
+  .give-impact-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .give-method-card {
+    padding: 22px;
+  }
+
+  .give-partner-actions {
+    flex-direction: column;
+  }
+
+  .give-partner-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .give-page .give-trust-note {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
