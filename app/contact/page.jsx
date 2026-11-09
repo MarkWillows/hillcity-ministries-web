@@ -3,9 +3,8 @@
 
 import { useState } from "react";
 import {
-  ArrowRight,
   BookOpen,
-  Check,
+  CheckCircle2,
   Clock3,
   Instagram,
   Mail,
@@ -15,6 +14,7 @@ import {
 } from "lucide-react";
 
 const ministryEmail = "contact@hillcityministries.org";
+const formEndpoint = "https://formspree.io/f/mjyyqkrg";
 
 const inquiryTypes = [
   "General Inquiry",
@@ -30,9 +30,11 @@ export default function ContactPage() {
     email: "",
     inquiry: "General Inquiry",
     message: "",
+    website: "",
   });
 
-  const [prepared, setPrepared] = useState(false);
+  const [status, setStatus] = useState("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
   function updateField(event) {
     const { name, value } = event.target;
@@ -41,36 +43,70 @@ export default function ContactPage() {
       ...previous,
       [name]: value,
     }));
-
-    setPrepared(false);
   }
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
 
-    const subject = encodeURIComponent(
-      `Hillcity Website: ${form.inquiry}`
-    );
+    if (status === "sending") return;
 
-    const body = encodeURIComponent(
-      `Name: ${form.name}\n` +
-      `Email: ${form.email}\n` +
-      `Inquiry: ${form.inquiry}\n\n` +
-      `Message:\n${form.message}`
-    );
+    // Hidden spam-trap field
+    if (form.website) return;
 
-    const emailLink =
-      `mailto:${ministryEmail}?subject=${subject}&body=${body}`;
+    setStatus("sending");
+    setErrorMessage("");
 
-    setPrepared(true);
-    window.location.href = emailLink;
+    try {
+      const response = await fetch(formEndpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          inquiry: form.inquiry,
+          message: form.message,
+          _subject: `Hillcity Website: ${form.inquiry}`,
+        }),
+      });
+
+      const result = await response.json().catch(() => ({}));
+
+      if (!response.ok) {
+        const message =
+          result.errors?.map((item) => item.message).join(" ") ||
+          "Your message could not be sent. Please try again.";
+
+        throw new Error(message);
+      }
+
+      setStatus("success");
+
+      setForm({
+        name: "",
+        email: "",
+        inquiry: "General Inquiry",
+        message: "",
+        website: "",
+      });
+    } catch (error) {
+      setStatus("error");
+      setErrorMessage(
+        error.message ||
+          "Something went wrong. Please try again."
+      );
+    }
   }
 
   return (
     <main className="hillcity-contact">
       <section className="contact-hero">
         <div className="container centered">
-          <span className="eyebrow">WE'D LOVE TO HEAR FROM YOU</span>
+          <span className="eyebrow">
+            WE'D LOVE TO HEAR FROM YOU
+          </span>
 
           <h1>Contact Us</h1>
 
@@ -85,18 +121,19 @@ export default function ContactPage() {
         <div className="container contact-layout">
           <div className="contact-info">
             <span className="eyebrow">GET IN TOUCH</span>
+
             <h2>Let's Connect</h2>
 
             <p className="contact-intro">
-              Whether you're reaching out for prayer,
-              information, or opportunities to serve,
-              we're here to hear from you.
+              Reach us directly or use the form
+              to send a message.
             </p>
 
             <div className="contact-detail">
               <div className="contact-detail-icon">
                 <Mail size={22} />
               </div>
+
               <div>
                 <h3>Email Us</h3>
                 <a href={`mailto:${ministryEmail}`}>
@@ -109,6 +146,7 @@ export default function ContactPage() {
               <div className="contact-detail-icon">
                 <Clock3 size={22} />
               </div>
+
               <div>
                 <h3>Sunday Bible Study</h3>
                 <p>Every Sunday, 6:00–6:30 PM ET</p>
@@ -119,6 +157,7 @@ export default function ContactPage() {
               <div className="contact-detail-icon">
                 <Phone size={22} />
               </div>
+
               <div>
                 <h3>Join by Phone</h3>
                 <a href="tel:+16692749759">
@@ -131,6 +170,7 @@ export default function ContactPage() {
               <div className="contact-detail-icon">
                 <Instagram size={22} />
               </div>
+
               <div>
                 <h3>Follow Our Ministry</h3>
                 <a
@@ -155,123 +195,165 @@ export default function ContactPage() {
           <div className="contact-form-card">
             <div className="contact-form-heading">
               <MessageCircleHeart size={28} />
+
               <h2>Send Us a Message</h2>
+
               <p>
-                Complete the form below to prepare
-                your message.
+                Complete the form and we'll receive
+                your message directly.
               </p>
             </div>
 
-            <form onSubmit={handleSubmit}>
-              <div className="contact-form-row">
-                <div className="contact-field">
-                  <label htmlFor="contact-name">
-                    Full Name *
-                  </label>
-                  <input
-                    id="contact-name"
-                    type="text"
-                    name="name"
-                    value={form.name}
-                    onChange={updateField}
-                    placeholder="Your full name"
-                    autoComplete="name"
-                    required
-                  />
-                </div>
-
-                <div className="contact-field">
-                  <label htmlFor="contact-email">
-                    Email Address *
-                  </label>
-                  <input
-                    id="contact-email"
-                    type="email"
-                    name="email"
-                    value={form.email}
-                    onChange={updateField}
-                    placeholder="you@example.com"
-                    autoComplete="email"
-                    required
-                  />
-                </div>
-              </div>
-
-              <div className="contact-field">
-                <label htmlFor="contact-inquiry">
-                  How Can We Help? *
-                </label>
-                <select
-                  id="contact-inquiry"
-                  name="inquiry"
-                  value={form.inquiry}
-                  onChange={updateField}
-                  required
-                >
-                  {inquiryTypes.map((type) => (
-                    <option key={type} value={type}>
-                      {type}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              <div className="contact-field">
-                <label htmlFor="contact-message">
-                  Your Message *
-                </label>
-                <textarea
-                  id="contact-message"
-                  name="message"
-                  value={form.message}
-                  onChange={updateField}
-                  placeholder="Write your message here..."
-                  rows={6}
-                  required
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="contact-submit"
+            {status === "success" ? (
+              <div
+                className="contact-success"
+                role="status"
               >
-                Continue to Email
-                <Send size={17} />
-              </button>
+                <CheckCircle2 size={42} />
 
-              {prepared && (
-                <p className="contact-form-notice" role="status">
-                  <Check size={17} />
-                  Your email app should open with
-                  the message prepared. Please send
-                  it from your email app.
+                <h3>Message Sent!</h3>
+
+                <p>
+                  Thank you for contacting Hillcity
+                  International Ministries.
+                  Your message has been submitted
+                  successfully.
                 </p>
-              )}
 
-              <p className="contact-form-footnote">
-                Your message is not sent until you
-                send it from your email application.
-              </p>
-            </form>
+                <button
+                  type="button"
+                  className="contact-submit"
+                  onClick={() => setStatus("idle")}
+                >
+                  Send Another Message
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit}>
+                <div className="contact-form-row">
+                  <div className="contact-field">
+                    <label htmlFor="contact-name">
+                      Full Name *
+                    </label>
+
+                    <input
+                      id="contact-name"
+                      name="name"
+                      type="text"
+                      value={form.name}
+                      onChange={updateField}
+                      placeholder="Your full name"
+                      autoComplete="name"
+                      required
+                    />
+                  </div>
+
+                  <div className="contact-field">
+                    <label htmlFor="contact-email">
+                      Email Address *
+                    </label>
+
+                    <input
+                      id="contact-email"
+                      name="email"
+                      type="email"
+                      value={form.email}
+                      onChange={updateField}
+                      placeholder="you@example.com"
+                      autoComplete="email"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div className="contact-field">
+                  <label htmlFor="contact-inquiry">
+                    How Can We Help? *
+                  </label>
+
+                  <select
+                    id="contact-inquiry"
+                    name="inquiry"
+                    value={form.inquiry}
+                    onChange={updateField}
+                    required
+                  >
+                    {inquiryTypes.map((type) => (
+                      <option key={type} value={type}>
+                        {type}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div className="contact-field">
+                  <label htmlFor="contact-message">
+                    Your Message *
+                  </label>
+
+                  <textarea
+                    id="contact-message"
+                    name="message"
+                    value={form.message}
+                    onChange={updateField}
+                    placeholder="Write your message here..."
+                    rows={6}
+                    required
+                  />
+                </div>
+
+                {/* Honeypot field for basic spam protection */}
+                <div
+                  style={{
+                    position: "absolute",
+                    left: "-9999px",
+                  }}
+                  aria-hidden="true"
+                >
+                  <label htmlFor="contact-website">
+                    Leave this field blank
+                  </label>
+                  <input
+                    id="contact-website"
+                    name="website"
+                    type="text"
+                    value={form.website}
+                    onChange={updateField}
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
+                </div>
+
+                {status === "error" && (
+                  <p
+                    className="contact-error"
+                    role="alert"
+                  >
+                    {errorMessage}
+                  </p>
+                )}
+
+                <button
+                  type="submit"
+                  className="contact-submit"
+                  disabled={status === "sending"}
+                >
+                  {status === "sending"
+                    ? "Sending..."
+                    : "Send Message"}
+
+                  {status !== "sending" && (
+                    <Send size={17} />
+                  )}
+                </button>
+
+                <p className="contact-form-footnote">
+                  Your message will be sent securely
+                  to our ministry team.
+                </p>
+              </form>
+            )}
           </div>
-        </div>
-      </section>
-
-      <section className="contact-bottom">
-        <div className="container centered">
-          <MessageCircleHeart size={30} />
-          <h2>We Look Forward to Hearing From You</h2>
-          <p>
-            Every connection is an opportunity
-            to share the love of Christ.
-          </p>
-          <a
-            href={`mailto:${ministryEmail}`}
-            className="contact-bottom-link"
-          >
-            Email Our Ministry
-            <ArrowRight size={17} />
-          </a>
         </div>
       </section>
     </main>
