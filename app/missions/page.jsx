@@ -6,8 +6,6 @@ import {
   ArrowUpRight,
   ArrowRight,
   HeartHandshake,
-  Globe,
-  BookOpen,
   PlayCircle,
 } from "lucide-react";
 
@@ -17,14 +15,6 @@ export const metadata = {
     "Explore the evangelism, biblical teaching, and compassionate outreach of Hillcity International Ministries.",
 };
 
-const videos = [
-  { src: "/videos/vid 1.mp4", title: "Biblical Teaching" },
-  { src: "/videos/vid 2.mp4", title: "Community Outreach" },
-  { src: "/videos/vid 3.mp4", title: "Sharing Christ's Love" },
-  { src: "/videos/vid 4.mp4", title: "Compassionate Care" },
-  { src: "/videos/vid 5.mp4", title: "Ministry Resources" },
-];
-
 const missions = [
   {
     letter: "S",
@@ -33,6 +23,7 @@ const missions = [
       "Sharing the gospel and demonstrating Christ's love through personal evangelism and compassionate community outreach.",
     type: "image",
     src: "/images/outreach/Outreach 1.jpeg",
+    alt: "Hillcity community outreach",
   },
   {
     letter: "H",
@@ -47,33 +38,41 @@ const missions = [
     title: "Online Evangelism",
     description:
       "Reaching people through online Bible study, biblical teachings, and digital evangelism.",
-    type: "online",
+    type: "image",
+    src: "/images/outreach/online-evangelism.jpg",
+    alt: "Illustration of online Christian teaching",
   },
   {
     letter: "P",
     title: "Prison Evangelism",
     description:
       "Sharing the message of salvation, restoration, and new life in Jesus Christ with incarcerated individuals.",
-    type: "prison",
+    type: "image",
+    src: "/images/outreach/prison-evangelism.jpg",
+    alt: "Representative image of prison ministry",
+  },
+];
+
+const videos = [
+  {
+    src: "/videos/vid 2.mp4",
+    title: "Community Outreach",
+  },
+  {
+    src: "/videos/vid 3.mp4",
+    title: "Sharing Christ's Love",
+  },
+  {
+    src: "/videos/vid 4.mp4",
+    title: "Compassionate Care",
+  },
+  {
+    src: "/videos/vid 5.mp4",
+    title: "Ministry Resources",
   },
 ];
 
 function MissionMedia({ mission }) {
-  if (mission.type === "image") {
-    return (
-      <img
-        src={mission.src}
-        alt="Hillcity community outreach"
-        style={{
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-          display: "block",
-        }}
-      />
-    );
-  }
-
   if (mission.type === "video") {
     return (
       <video
@@ -81,7 +80,7 @@ function MissionMedia({ mission }) {
         controls
         playsInline
         preload="metadata"
-        aria-label="Hillcity biblical teaching"
+        aria-label="Hillcity hospital ministry teaching"
         style={{
           width: "100%",
           height: "100%",
@@ -93,52 +92,33 @@ function MissionMedia({ mission }) {
     );
   }
 
-  const online = mission.type === "online";
-
   return (
-    <div
+    <img
+      src={mission.src}
+      alt={mission.alt}
+      loading="lazy"
       style={{
         width: "100%",
         height: "100%",
-        background: online
-          ? "linear-gradient(135deg, #e9f0e2, #d7e5cb)"
-          : "linear-gradient(135deg, #f4efe4, #e5eadc)",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        gap: 14,
-        color: "#31551B",
-        textAlign: "center",
-        padding: 24,
+        objectFit: "cover",
+        display: "block",
       }}
-    >
-      {online ? (
-        <Globe size={62} strokeWidth={1.3} />
-      ) : (
-        <BookOpen size={62} strokeWidth={1.3} />
-      )}
-
-      <strong style={{ fontSize: 18 }}>
-        {online ? "The Gospel Without Borders" : "Hope & New Life"}
-      </strong>
-
-      <span style={{ fontSize: 13 }}>
-        {online
-          ? "Digital ministry"
-          : "Our prison evangelism mandate"}
-      </span>
-    </div>
+    />
   );
 }
 
 export default function MissionsPage() {
   return (
     <main>
+      {/* PAGE INTRODUCTION */}
       <section className="missions-hero">
         <div className="container centered">
-          <span className="eyebrow">FAITH IN ACTION</span>
+          <span className="eyebrow">
+            FAITH IN ACTION
+          </span>
+
           <h1>Missions</h1>
+
           <p>
             Sharing the gospel, demonstrating Christ's love,
             and reaching lives wherever God leads us.
@@ -146,13 +126,16 @@ export default function MissionsPage() {
         </div>
       </section>
 
+      {/* SHOP MANDATE */}
       <section className="section missions-main">
         <div className="container">
           <div className="section-heading centered">
             <span className="eyebrow">
               OUR EVANGELISM MANDATE
             </span>
+
             <h2>The SHOP Mandate</h2>
+
             <p>
               Reaching people with the gospel of Jesus Christ
               through four areas of evangelism.
@@ -188,13 +171,24 @@ export default function MissionsPage() {
                   <MissionMedia mission={mission} />
                 </div>
 
-                <div style={{ padding: "28px 24px 32px" }}>
+                <div
+                  style={{
+                    padding: "28px 24px 32px",
+                  }}
+                >
                   <span className="eyebrow">
                     {mission.letter} — SHOP
                   </span>
-                  <h3 style={{ marginTop: 16, marginBottom: 14 }}>
+
+                  <h3
+                    style={{
+                      marginTop: 16,
+                      marginBottom: 14,
+                    }}
+                  >
                     {mission.title}
                   </h3>
+
                   <p>{mission.description}</p>
                 </div>
               </article>
@@ -203,16 +197,21 @@ export default function MissionsPage() {
         </div>
       </section>
 
+      {/* MINISTRY VIDEOS */}
       <section
         className="section"
-        style={{ background: "#F4F7EE" }}
+        style={{
+          background: "#F4F7EE",
+        }}
       >
         <div className="container">
           <div className="section-heading centered">
             <span className="eyebrow">
               REAL MOMENTS. REAL MINISTRY.
             </span>
+
             <h2>Hillcity in Action</h2>
+
             <p>
               A glimpse into our evangelism, teaching,
               and compassionate outreach.
@@ -273,6 +272,7 @@ export default function MissionsPage() {
         </div>
       </section>
 
+      {/* INSTAGRAM MISSIONS FEED */}
       <section className="section missions-updates">
         <div className="container">
           <div className="missions-social-panel">
@@ -280,10 +280,13 @@ export default function MissionsPage() {
               <div className="missions-social-icon">
                 <Instagram size={28} />
               </div>
+
               <span className="eyebrow">
                 FOLLOW OUR OUTREACH
               </span>
+
               <h2>Missions in Action</h2>
+
               <p>
                 Explore our latest outreach activities,
                 stories, and updates from the field.
@@ -295,6 +298,7 @@ export default function MissionsPage() {
                 src="https://elfsightcdn.com/platform.js"
                 strategy="afterInteractive"
               />
+
               <div
                 className="elfsight-app-1aedeb70-6840-4f7e-a1a1-c62dfb7bf675"
                 data-elfsight-app-lazy
@@ -317,16 +321,26 @@ export default function MissionsPage() {
         </div>
       </section>
 
+      {/* PARTNER WITH THE MISSION */}
       <section className="section missions-partner">
         <div className="container centered">
-          <HeartHandshake size={34} color="#78923A" />
+          <HeartHandshake
+            size={34}
+            color="#78923A"
+          />
+
           <h2>Partner With the Mission</h2>
+
           <p>
             Through prayer, service, and generosity,
             you can help us share the gospel
             and extend the love of Christ.
           </p>
-          <Link href="/give" className="btn btn-primary">
+
+          <Link
+            href="/give"
+            className="btn btn-primary"
+          >
             Give / Partner
             <ArrowRight size={18} />
           </Link>
