@@ -3420,20 +3420,13 @@ body {
 
 /* HOMEPAGE HERO — FULL BLEED RIGHT IMAGE */
 
-@media (min-width: 901px) {
-  .hillcity-home .home-hero {
-    overflow: hidden;
-  }
 
-  .hillcity-home .home-hero-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 55px;
-  }
-
-  .hillcity-home .home-hero-image {
-    width: calc(100% + (100vw - 100%) / 2);
-    min-height: 520px;
-    border-radius: 18px 0 0 18px;
-    box-shadow: none;
-  }
+.hillcity-home .home-hero-image {
+  position: relative;
+  width: 100%;
+  min-height: 440px;
+  overflow: hidden;
+  border-radius: 18px;
+  box-shadow: 0 18px 45px #31551b18;
 }
+
