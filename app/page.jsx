@@ -224,6 +224,89 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* MEET OUR PASTORS */}
+      <section className="section">
+        <div
+          className="container"
+          style={{
+            display: "grid",
+            gridTemplateColumns:
+              "repeat(auto-fit, minmax(min(100%, 340px), 1fr))",
+            alignItems: "center",
+            gap: 52,
+          }}
+        >
+          <div
+            style={{
+              position: "relative",
+              width: "100%",
+              minHeight: 420,
+              aspectRatio: "5 / 4",
+              borderRadius: 18,
+              overflow: "hidden",
+              background: "#F4F7EE",
+            }}
+          >
+            <Image
+              src="/images/pastors/pastors-together-2.png"
+              alt="Pastors Foyin and Peace Bamidele, co-founders of Hillcity International Ministries"
+              fill
+              sizes="(max-width: 900px) 100vw, 48vw"
+              style={{
+                objectFit: "contain",
+                objectPosition: "center",
+              }}
+            />
+          </div>
+
+          <div>
+            <span className="eyebrow">
+              MEET OUR PASTORS
+            </span>
+
+            <h2 style={{ marginTop: 18 }}>
+              Leading With Faith.
+              <br />
+              Serving With Love.
+            </h2>
+
+            <h3 style={{ marginTop: 22 }}>
+              Pastors Foyin &amp; Peace Bamidele
+            </h3>
+
+            <p>
+              Foyin and Peace Bamidele are a husband-and-wife
+              ministry team who co-founded Hillcity International
+              Ministries in 2023, united by a shared passion
+              for proclaiming the supremacy of Jesus Christ.
+            </p>
+
+            <p>
+              Peace has served as an ordained minister since
+              2019. Together, they help believers discover
+              their identity, inheritance, and ability in
+              Christ through sound biblical teaching,
+              discipleship, and spiritual growth.
+            </p>
+
+            <p>
+              Their ministry also extends to evangelism
+              and compassionate outreach, including
+              serving people experiencing homelessness
+              across Atlanta.
+            </p>
+
+            <Link
+              className="text-link"
+              href="/about/pastors"
+            >
+              Meet Our Pastors
+              <ArrowRight size={17} />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* SERMONS AND BIBLE STUDY */}
       <section className="section home-grow">
         <div className="container home-grow-grid">
