@@ -1,18 +1,19 @@
 
 import Link from "next/link";
+import Image from "next/image";
 import Script from "next/script";
 import {
-  Instagram,
-  ArrowUpRight,
   ArrowRight,
+  ArrowUpRight,
   HeartHandshake,
+  Instagram,
   PlayCircle,
 } from "lucide-react";
 
 export const metadata = {
   title: "Missions",
   description:
-    "Explore the evangelism, biblical teaching, and compassionate outreach of Hillcity International Ministries.",
+    "Explore the SHOP evangelism mandate and ministry outreach of Hillcity International Ministries.",
 };
 
 const missions = [
@@ -21,39 +22,35 @@ const missions = [
     title: "Street Evangelism",
     description:
       "Sharing the gospel and demonstrating Christ's love through personal evangelism and compassionate community outreach.",
-    type: "image",
-    src: "/images/outreach/Outreach 1.jpeg",
-    alt: "Hillcity community outreach",
+    image: "/images/outreach/Outreach 1.jpeg",
+    alt: "Hillcity street evangelism and community outreach",
   },
   {
     letter: "H",
     title: "Hospital Evangelism",
     description:
       "Bringing biblical teaching, prayer, encouragement, and the hope of Christ to people in hospital settings.",
-    type: "video",
-    src: "/videos/vid 1.mp4",
+    video: "/videos/vid 1.mp4",
   },
   {
     letter: "O",
     title: "Online Evangelism",
     description:
       "Reaching people through online Bible study, biblical teachings, and digital evangelism.",
-    type: "image",
-    src: "/images/outreach/online-evangelism.jpg",
-    alt: "Illustration of online Christian teaching",
+    image: "/images/outreach/Online Bible Study.png",
+    alt: "Hillcity online Bible study",
   },
   {
     letter: "P",
     title: "Prison Evangelism",
     description:
       "Sharing the message of salvation, restoration, and new life in Jesus Christ with incarcerated individuals.",
-    type: "image",
-    src: "/images/outreach/prison-evangelism.jpg",
-    alt: "Representative image of prison ministry",
+    image: "/images/outreach/prison evangelism.jpeg",
+    alt: "Illustration of prison evangelism",
   },
 ];
 
-const videos = [
+const ministryVideos = [
   {
     src: "/videos/vid 2.mp4",
     title: "Community Outreach",
@@ -72,53 +69,14 @@ const videos = [
   },
 ];
 
-function MissionMedia({ mission }) {
-  if (mission.type === "video") {
-    return (
-      <video
-        src={mission.src}
-        controls
-        playsInline
-        preload="metadata"
-        aria-label="Hillcity hospital ministry teaching"
-        style={{
-          width: "100%",
-          height: "100%",
-          objectFit: "contain",
-          background: "#142316",
-          display: "block",
-        }}
-      />
-    );
-  }
-
-  return (
-    <img
-      src={mission.src}
-      alt={mission.alt}
-      loading="lazy"
-      style={{
-        width: "100%",
-        height: "100%",
-        objectFit: "cover",
-        display: "block",
-      }}
-    />
-  );
-}
-
 export default function MissionsPage() {
   return (
-    <main>
-      {/* PAGE INTRODUCTION */}
+    <main className="hillcity-missions">
+      {/* INTRODUCTION */}
       <section className="missions-hero">
         <div className="container centered">
-          <span className="eyebrow">
-            FAITH IN ACTION
-          </span>
-
+          <span className="eyebrow">FAITH IN ACTION</span>
           <h1>Missions</h1>
-
           <p>
             Sharing the gospel, demonstrating Christ's love,
             and reaching lives wherever God leads us.
@@ -133,62 +91,54 @@ export default function MissionsPage() {
             <span className="eyebrow">
               OUR EVANGELISM MANDATE
             </span>
-
             <h2>The SHOP Mandate</h2>
-
             <p>
-              Reaching people with the gospel of Jesus Christ
-              through four areas of evangelism.
+              Reaching people with the gospel of Jesus
+              Christ through Street, Hospital, Online,
+              and Prison evangelism.
             </p>
           </div>
 
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns:
-                "repeat(auto-fit, minmax(min(100%, 260px), 1fr))",
-              gap: 22,
-              alignItems: "stretch",
-            }}
-          >
+          <div className="missions-grid">
             {missions.map((mission) => (
               <article
+                className="missions-card"
                 key={mission.letter}
-                style={{
-                  border: "1px solid #dfe6d5",
-                  borderRadius: 20,
-                  overflow: "hidden",
-                  background: "#fff",
-                  minWidth: 0,
-                }}
               >
-                <div
-                  style={{
-                    height: 235,
-                    overflow: "hidden",
-                  }}
-                >
-                  <MissionMedia mission={mission} />
+                <div className="missions-media">
+                  {mission.video ? (
+                    <video
+                      controls
+                      playsInline
+                      preload="metadata"
+                      aria-label={mission.title}
+                    >
+                      <source
+                        src={mission.video}
+                        type="video/mp4"
+                      />
+                      Your browser does not support video.
+                    </video>
+                  ) : (
+                    <Image
+                      src={mission.image}
+                      alt={mission.alt}
+                      fill
+                      sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 25vw"
+                      style={{
+                        objectFit: "cover",
+                        objectPosition: "center",
+                      }}
+                    />
+                  )}
                 </div>
 
-                <div
-                  style={{
-                    padding: "28px 24px 32px",
-                  }}
-                >
-                  <span className="eyebrow">
+                <div className="missions-card-copy">
+                  <span className="missions-letter">
                     {mission.letter} — SHOP
                   </span>
 
-                  <h3
-                    style={{
-                      marginTop: 16,
-                      marginBottom: 14,
-                    }}
-                  >
-                    {mission.title}
-                  </h3>
-
+                  <h3>{mission.title}</h3>
                   <p>{mission.description}</p>
                 </div>
               </article>
@@ -197,13 +147,8 @@ export default function MissionsPage() {
         </div>
       </section>
 
-      {/* MINISTRY VIDEOS */}
-      <section
-        className="section"
-        style={{
-          background: "#F4F7EE",
-        }}
-      >
+      {/* VIDEO GALLERY */}
+      <section className="section missions-video-section">
         <div className="container">
           <div className="section-heading centered">
             <span className="eyebrow">
@@ -213,58 +158,33 @@ export default function MissionsPage() {
             <h2>Hillcity in Action</h2>
 
             <p>
-              A glimpse into our evangelism, teaching,
-              and compassionate outreach.
+              A glimpse into our evangelism,
+              teaching, and compassionate outreach.
             </p>
           </div>
 
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns:
-                "repeat(auto-fit, minmax(min(100%, 280px), 1fr))",
-              gap: 22,
-              maxWidth: 1150,
-              margin: "0 auto",
-            }}
-          >
-            {videos.map((video) => (
+          <div className="missions-video-grid">
+            {ministryVideos.map((video) => (
               <article
+                className="missions-video-card"
                 key={video.src}
-                style={{
-                  borderRadius: 16,
-                  overflow: "hidden",
-                  background: "#fff",
-                  border: "1px solid #dfe6d5",
-                }}
               >
                 <video
-                  src={video.src}
                   controls
                   playsInline
                   preload="metadata"
                   aria-label={video.title}
-                  style={{
-                    width: "100%",
-                    height: 210,
-                    objectFit: "contain",
-                    background: "#142316",
-                    display: "block",
-                  }}
-                />
-
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 9,
-                    padding: "15px 18px",
-                    color: "#31551B",
-                    fontWeight: 600,
-                  }}
                 >
-                  <PlayCircle size={18} />
-                  {video.title}
+                  <source
+                    src={video.src}
+                    type="video/mp4"
+                  />
+                  Your browser does not support video.
+                </video>
+
+                <div className="missions-video-caption">
+                  <PlayCircle size={17} />
+                  <span>{video.title}</span>
                 </div>
               </article>
             ))}
@@ -272,7 +192,7 @@ export default function MissionsPage() {
         </div>
       </section>
 
-      {/* INSTAGRAM MISSIONS FEED */}
+      {/* INSTAGRAM */}
       <section className="section missions-updates">
         <div className="container">
           <div className="missions-social-panel">
@@ -285,10 +205,10 @@ export default function MissionsPage() {
                 FOLLOW OUR OUTREACH
               </span>
 
-              <h2>Missions in Action</h2>
+              <h2>More Missions in Action</h2>
 
               <p>
-                Explore our latest outreach activities,
+                Follow our outreach activities,
                 stories, and updates from the field.
               </p>
             </div>
@@ -321,7 +241,7 @@ export default function MissionsPage() {
         </div>
       </section>
 
-      {/* PARTNER WITH THE MISSION */}
+      {/* PARTNER */}
       <section className="section missions-partner">
         <div className="container centered">
           <HeartHandshake
@@ -333,8 +253,8 @@ export default function MissionsPage() {
 
           <p>
             Through prayer, service, and generosity,
-            you can help us share the gospel
-            and extend the love of Christ.
+            you can help us share the gospel and
+            extend the love of Christ.
           </p>
 
           <Link
