@@ -3027,3 +3027,46 @@ body {
     padding: 38px 18px;
   }
 }
+
+/* CONTACT FORM — FORMSPREE REFINEMENTS */
+
+.hillcity-contact .contact-success {
+  text-align: center;
+  padding: 28px 12px;
+}
+
+.hillcity-contact .contact-success > svg {
+  color: #78923a;
+  margin-bottom: 12px;
+}
+
+.hillcity-contact .contact-success h3 {
+  color: #31551b;
+  font-size: 24px;
+  margin: 0 0 12px;
+}
+
+.hillcity-contact .contact-success p {
+  line-height: 1.75;
+  margin-bottom: 24px;
+}
+
+.hillcity-contact .contact-error {
+  color: #a52a2a;
+  background: #fff1f1;
+  border: 1px solid #f0c5c5;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.hillcity-contact .contact-submit:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.hillcity-contact .contact-content {
+  padding-top: 55px;
+  padding-bottom: 55px;
+}
