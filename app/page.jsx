@@ -29,26 +29,10 @@ const outreachPhotos = [
 ];
 
 const shop = [
-  {
-    letter: "S",
-    title: "Street",
-    Icon: MapPin,
-  },
-  {
-    letter: "H",
-    title: "Hospital",
-    Icon: Hospital,
-  },
-  {
-    letter: "O",
-    title: "Online",
-    Icon: Globe,
-  },
-  {
-    letter: "P",
-    title: "Prison",
-    Icon: Heart,
-  },
+  { letter: "S", title: "Street", Icon: MapPin },
+  { letter: "H", title: "Hospital", Icon: Hospital },
+  { letter: "O", title: "Online", Icon: Globe },
+  { letter: "P", title: "Prison", Icon: Heart },
 ];
 
 export default function HomePage() {
@@ -90,12 +74,15 @@ export default function HomePage() {
 
           <div className="home-hero-image">
             <Image
-              src="/images/outreach/Outreach 1.jpeg"
-              alt="Hillcity International Ministries outreach"
+              src="/images/outreach/landing page core.png"
+              alt="A diverse congregation worshipping with raised hands"
               fill
               priority
               sizes="(max-width: 900px) 100vw, 48vw"
-              style={{ objectFit: "cover" }}
+              style={{
+                objectFit: "cover",
+                objectPosition: "center",
+              }}
             />
           </div>
         </div>
@@ -132,7 +119,9 @@ export default function HomePage() {
       {/* GUIDING CONVICTION */}
       <section className="home-conviction">
         <div className="container centered">
-          <span className="eyebrow">OUR GUIDING CONVICTION</span>
+          <span className="eyebrow">
+            OUR GUIDING CONVICTION
+          </span>
 
           <h2>
             Rooted in the Word.
@@ -175,8 +164,12 @@ export default function HomePage() {
         <div className="container">
           <div className="home-section-top">
             <div>
-              <span className="eyebrow">OUR MISSION IN ACTION</span>
+              <span className="eyebrow">
+                OUR MISSION IN ACTION
+              </span>
+
               <h2>Sharing Christ. Touching Lives.</h2>
+
               <p>
                 Taking the love and message of Jesus Christ
                 beyond the walls of the church.
@@ -209,11 +202,13 @@ export default function HomePage() {
 
           <div className="home-shop">
             <div className="home-shop-intro">
-              <span className="eyebrow">OUR EVANGELISM MANDATE</span>
+              <span className="eyebrow">
+                OUR EVANGELISM MANDATE
+              </span>
+
               <h3>The SHOP Mandate</h3>
-              <p>
-                Reaching people wherever they are.
-              </p>
+
+              <p>Reaching people wherever they are.</p>
             </div>
 
             <div className="home-shop-grid">
@@ -233,9 +228,13 @@ export default function HomePage() {
       <section className="section home-grow">
         <div className="container home-grow-grid">
           <div className="home-grow-copy">
-            <span className="eyebrow">GROW IN THE WORD</span>
+            <span className="eyebrow">
+              GROW IN THE WORD
+            </span>
 
-            <h2>Discover the Life-Changing Power of God's Word.</h2>
+            <h2>
+              Discover the Life-Changing Power of God's Word.
+            </h2>
 
             <p>
               Explore Christ-centered biblical teachings
@@ -252,7 +251,9 @@ export default function HomePage() {
           <div className="home-study-card">
             <CalendarDays size={30} />
 
-            <span className="eyebrow">YOU'RE INVITED</span>
+            <span className="eyebrow">
+              YOU'RE INVITED
+            </span>
 
             <h3>Sunday Bible Study</h3>
 
@@ -261,7 +262,9 @@ export default function HomePage() {
               fellowship, and growing in God's Word.
             </p>
 
-            <strong>Sundays · 6:00–6:30 PM ET</strong>
+            <strong>
+              Sundays · 6:00–6:30 PM ET
+            </strong>
 
             <Link className="text-link" href="/join-us">
               Join Our Bible Study
@@ -274,7 +277,9 @@ export default function HomePage() {
       {/* PARTNER */}
       <section className="section home-partner centered">
         <div className="container">
-          <span className="eyebrow">PARTNER WITH THE MISSION</span>
+          <span className="eyebrow">
+            PARTNER WITH THE MISSION
+          </span>
 
           <h2>Be Part of What God Is Doing.</h2>
 
