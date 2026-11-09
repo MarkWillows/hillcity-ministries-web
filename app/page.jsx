@@ -1,299 +1,290 @@
 
 import Link from "next/link";
+import Image from "next/image";
 import {
   ArrowRight,
-  Headphones,
-  Youtube,
-  CalendarDays,
-  HeartHandshake,
   BookOpen,
+  CalendarDays,
+  Headphones,
+  HeartHandshake,
   MapPin,
   Hospital,
   Globe,
   Heart,
 } from "lucide-react";
 
+const outreachPhotos = [
+  {
+    src: "/images/outreach/Outreach 1.jpeg",
+    alt: "Hillcity ministry outreach activity",
+  },
+  {
+    src: "/images/outreach/Outreach 2.jpeg",
+    alt: "Hillcity community outreach activity",
+  },
+  {
+    src: "/images/outreach/Outreach 3.jpeg",
+    alt: "Hillcity ministry serving the community",
+  },
+];
+
 const shop = [
   {
     letter: "S",
-    title: "Street Evangelism",
-    description:
-      "Taking the message of Jesus Christ to our communities through compassionate outreach.",
+    title: "Street",
     Icon: MapPin,
   },
   {
     letter: "H",
-    title: "Hospital Evangelism",
-    description:
-      "Sharing hope, encouragement, and the love of Christ with those facing illness.",
+    title: "Hospital",
     Icon: Hospital,
   },
   {
     letter: "O",
-    title: "Online Evangelism",
-    description:
-      "Reaching people around the world through digital teachings and the gospel.",
+    title: "Online",
     Icon: Globe,
   },
   {
     letter: "P",
-    title: "Prison Evangelism",
-    description:
-      "Sharing the message of salvation, restoration, and new life in Christ.",
+    title: "Prison",
     Icon: Heart,
   },
 ];
 
 export default function HomePage() {
   return (
-    <main>
-      {/* HERO SECTION */}
-      <section className="hero">
-        <div className="container hero-content">
-          <span className="eyebrow">
-            WELCOME TO HILLCITY
-          </span>
+    <main className="hillcity-home">
+      {/* HERO */}
+      <section className="home-hero">
+        <div className="container home-hero-grid">
+          <div className="home-hero-copy">
+            <span className="eyebrow">
+              WELCOME TO HILLCITY INTERNATIONAL MINISTRIES
+            </span>
 
-          <h1>
-            A City Set on a Hill Cannot Be Hidden.
-          </h1>
+            <h1>
+              A City Set on a Hill Cannot Be Hidden.
+            </h1>
 
-          <p>
-            Sharing the love of Jesus Christ,
-            transforming lives through God's Word,
-            and reaching the world with the gospel.
-          </p>
+            <p>
+              Proclaiming the supremacy of Jesus Christ,
+              revealing our identity in Him, and sharing
+              His love with the world.
+            </p>
 
-          <div className="hero-actions">
-            <Link
-              className="btn btn-primary"
-              href="/sermons"
-            >
-              Explore Sermons
-              <ArrowRight size={18} />
-            </Link>
+            <div className="home-actions">
+              <Link className="btn btn-primary" href="/about">
+                Discover Hillcity
+                <ArrowRight size={18} />
+              </Link>
 
-            <Link
-              className="btn btn-outline"
-              href="/join-us"
-            >
-              Join Bible Study
-            </Link>
+              <Link className="btn btn-outline" href="/join-us">
+                Join Bible Study
+              </Link>
+            </div>
+
+            <span className="home-scripture">
+              MATTHEW 5:14
+            </span>
           </div>
 
-          <p className="scripture">
-            Matthew 5:14
-          </p>
+          <div className="home-hero-image">
+            <Image
+              src="/images/outreach/Outreach 1.jpeg"
+              alt="Hillcity International Ministries outreach"
+              fill
+              priority
+              sizes="(max-width: 900px) 100vw, 48vw"
+              style={{ objectFit: "cover" }}
+            />
+          </div>
         </div>
       </section>
 
-      {/* WELCOME SECTION */}
-      <section className="section welcome">
+      {/* VISION AND MISSION */}
+      <section className="section home-purpose">
+        <div className="container">
+          <div className="home-purpose-grid">
+            <div>
+              <span className="eyebrow">OUR VISION</span>
+              <h2>
+                Proclaiming the Supremacy of Jesus Christ.
+              </h2>
+            </div>
+
+            <div className="home-purpose-mission">
+              <span className="eyebrow">OUR MISSION</span>
+              <p>
+                To proclaim the supremacy of Christ while
+                empowering members to embrace their identity,
+                inheritance, and ability in Him.
+              </p>
+
+              <Link className="text-link" href="/about">
+                Learn More About Us
+                <ArrowRight size={17} />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* GUIDING CONVICTION */}
+      <section className="home-conviction">
         <div className="container centered">
-          <span className="eyebrow">
-            WHO WE ARE
-          </span>
+          <span className="eyebrow">OUR GUIDING CONVICTION</span>
 
           <h2>
-            Welcome to Hillcity International Ministries
+            Rooted in the Word.
+            <br />
+            Led by the Spirit.
+            <br />
+            Centered on Jesus.
           </h2>
+
+          <div className="home-conviction-grid">
+            <div>
+              <BookOpen size={29} />
+              <p>
+                The Word of God
+                <strong> is our Map.</strong>
+              </p>
+            </div>
+
+            <div>
+              <Globe size={29} />
+              <p>
+                The Holy Spirit
+                <strong> is our Guide.</strong>
+              </p>
+            </div>
+
+            <div>
+              <Heart size={29} />
+              <p>
+                Jesus
+                <strong> is our Lord.</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* OUTREACH PHOTOGRAPHS */}
+      <section className="section home-outreach">
+        <div className="container">
+          <div className="home-section-top">
+            <div>
+              <span className="eyebrow">OUR MISSION IN ACTION</span>
+              <h2>Sharing Christ. Touching Lives.</h2>
+              <p>
+                Taking the love and message of Jesus Christ
+                beyond the walls of the church.
+              </p>
+            </div>
+
+            <Link className="text-link" href="/missions">
+              Explore Our Missions
+              <ArrowRight size={17} />
+            </Link>
+          </div>
+
+          <div className="home-photo-grid">
+            {outreachPhotos.map((photo, index) => (
+              <div className="home-photo" key={photo.src}>
+                <Image
+                  src={photo.src}
+                  alt={photo.alt}
+                  fill
+                  sizes={
+                    index === 0
+                      ? "(max-width: 700px) 100vw, 55vw"
+                      : "(max-width: 700px) 100vw, 25vw"
+                  }
+                  style={{ objectFit: "cover" }}
+                />
+              </div>
+            ))}
+          </div>
+
+          <div className="home-shop">
+            <div className="home-shop-intro">
+              <span className="eyebrow">OUR EVANGELISM MANDATE</span>
+              <h3>The SHOP Mandate</h3>
+              <p>
+                Reaching people wherever they are.
+              </p>
+            </div>
+
+            <div className="home-shop-grid">
+              {shop.map(({ letter, title, Icon }) => (
+                <div className="home-shop-item" key={letter}>
+                  <Icon size={21} />
+                  <strong>{letter}</strong>
+                  <span>{title}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SERMONS AND BIBLE STUDY */}
+      <section className="section home-grow">
+        <div className="container home-grow-grid">
+          <div className="home-grow-copy">
+            <span className="eyebrow">GROW IN THE WORD</span>
+
+            <h2>Discover the Life-Changing Power of God's Word.</h2>
+
+            <p>
+              Explore Christ-centered biblical teachings
+              that strengthen faith and reveal the truth
+              of who we are in Him.
+            </p>
+
+            <Link className="btn btn-primary" href="/sermons">
+              <Headphones size={18} />
+              Listen to Sermons
+            </Link>
+          </div>
+
+          <div className="home-study-card">
+            <CalendarDays size={30} />
+
+            <span className="eyebrow">YOU'RE INVITED</span>
+
+            <h3>Sunday Bible Study</h3>
+
+            <p>
+              Join us for a refreshing time of learning,
+              fellowship, and growing in God's Word.
+            </p>
+
+            <strong>Sundays · 6:00–6:30 PM ET</strong>
+
+            <Link className="text-link" href="/join-us">
+              Join Our Bible Study
+              <ArrowRight size={17} />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* PARTNER */}
+      <section className="section home-partner centered">
+        <div className="container">
+          <span className="eyebrow">PARTNER WITH THE MISSION</span>
+
+          <h2>Be Part of What God Is Doing.</h2>
 
           <p>
-            We are a Christ-centered ministry committed
-            to proclaiming the gospel, equipping
-            believers through God's Word, and extending
-            the love of Christ to our world.
-          </p>
-
-          <Link className="text-link" href="/about">
-            Discover Hillcity
-            <ArrowRight size={17} />
-          </Link>
-        </div>
-      </section>
-
-      {/* SERMONS SECTION */}
-      <section className="section section-light">
-        <div className="container">
-          <div className="section-heading centered">
-            <span className="eyebrow">
-              GROW IN THE WORD
-            </span>
-
-            <h2>Sermons</h2>
-
-            <p>
-              Explore biblical teachings designed
-              to strengthen your faith and deepen
-              your relationship with Jesus Christ.
-            </p>
-          </div>
-
-          <div className="feature-grid">
-            <div className="feature-card">
-              <Headphones size={36} />
-
-              <h3>Listen to Sermons</h3>
-
-              <p>
-                Access our audio teachings and
-                sermon series on SoundCloud.
-              </p>
-
-              <Link href="/sermons">
-                Explore Audio Sermons
-                <ArrowRight size={16} />
-              </Link>
-            </div>
-
-            <div className="feature-card">
-              <Youtube size={36} />
-
-              <h3>Watch Teachings</h3>
-
-              <p>
-                Watch video teachings and ministry
-                messages through our YouTube channel.
-              </p>
-
-              <Link href="/sermons">
-                Explore Video Teachings
-                <ArrowRight size={16} />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* JOIN US SECTION */}
-      <section className="section">
-        <div className="container service-panel">
-          <div>
-            <span className="eyebrow">
-              WORSHIP & FELLOWSHIP
-            </span>
-
-            <h2>
-              Join Our Weekly Bible Study
-            </h2>
-
-            <p>
-              Every Sunday, we gather online to
-              study God's Word, grow in faith,
-              and experience the transforming
-              power of the gospel.
-            </p>
-
-            <div className="service-detail">
-              <CalendarDays size={22} />
-
-              <span>
-                Sundays | 6:00–6:30 PM Eastern Time
-              </span>
-            </div>
-
-            <Link
-              className="btn btn-primary"
-              href="/join-us"
-            >
-              Join Us
-              <ArrowRight size={18} />
-            </Link>
-          </div>
-
-          <div className="service-verse">
-            <BookOpen size={42} />
-
-            <h3>
-              Growing Together in God's Word
-            </h3>
-
-            <p>
-              Come, learn, grow, and be
-              strengthened in faith.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* SHOP EVANGELISM SECTION */}
-      <section className="section section-light">
-        <div className="container">
-          <div className="section-heading centered">
-            <span className="eyebrow">
-              OUR EVANGELISM MANDATE
-            </span>
-
-            <h2>The SHOP Mandate</h2>
-
-            <p>
-              Reaching people with the gospel
-              of Jesus Christ wherever they are.
-            </p>
-          </div>
-
-          <div className="shop-grid">
-            {shop.map(
-              ({
-                letter,
-                title,
-                description,
-                Icon,
-              }) => (
-                <div
-                  className="shop-card"
-                  key={letter}
-                >
-                  <div className="shop-icon">
-                    <Icon size={26} />
-                  </div>
-
-                  <span className="shop-letter">
-                    {letter}
-                  </span>
-
-                  <h3>{title}</h3>
-
-                  <p>{description}</p>
-                </div>
-              )
-            )}
-          </div>
-
-          <div className="centered section-action">
-            <Link
-              className="btn btn-primary"
-              href="/missions"
-            >
-              Explore Missions
-              <ArrowRight size={18} />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* GIVE AND PARTNER SECTION */}
-      <section className="section centered">
-        <div className="container">
-          <span className="eyebrow">
-            PARTNER WITH THE MISSION
-          </span>
-
-          <h2>
-            Help Us Reach More Lives
-          </h2>
-
-          <p className="narrow">
             Through prayer, service, and generosity,
-            you can partner with Hillcity to advance
-            the gospel and extend Christ's love
-            to more people.
+            you can help us share the gospel and
+            extend Christ's love to more lives.
           </p>
 
-          <Link
-            className="btn btn-primary"
-            href="/give"
-          >
+          <Link className="btn btn-primary" href="/give">
             Give / Partner
             <HeartHandshake size={18} />
           </Link>
