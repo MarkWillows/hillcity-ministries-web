@@ -3431,7 +3431,7 @@ body {
   }
 
   .hillcity-home .home-hero-image {
-width: calc(100% + (100vw - min(100vw, 1200px)) / 2);
+    width: calc(100% + (100vw - 100%) / 2);
     min-height: 520px;
     border-radius: 18px 0 0 18px;
     box-shadow: none;
