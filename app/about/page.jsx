@@ -1,96 +1,285 @@
 
 import Link from "next/link";
+import Image from "next/image";
 import {
-  Eye,
-  Target,
-  BookOpen,
-  Users,
   ArrowRight,
+  BookOpen,
+  Heart,
+  Cross,
+  Compass,
+  Users,
+  Sparkles,
 } from "lucide-react";
 
 export const metadata = {
   title: "About Hillcity",
   description:
-    "Discover the vision, mission, statement of faith, and pastoral leadership of Hillcity International Ministries.",
+    "Discover the vision, mission, beliefs, and pastoral leadership of Hillcity International Ministries.",
 };
 
-const aboutSections = [
+const coreValues = [
   {
-    title: "Our Vision",
-    description:
-      "Discover the vision that guides Hillcity International Ministries and our commitment to making Christ known.",
-    href: "/about/vision",
-    Icon: Eye,
-  },
-  {
-    title: "Our Mission",
-    description:
-      "Learn about our calling to proclaim the gospel, equip believers, and reach people through evangelism.",
-    href: "/about/mission",
-    Icon: Target,
-  },
-  {
-    title: "Statement of Faith",
-    description:
-      "Explore the biblical foundations and Christian beliefs that shape our ministry.",
-    href: "/about/statement-of-faith",
+    title: "Bible-Based",
+    description: "Grounded in the truth and authority of God's Word.",
     Icon: BookOpen,
   },
   {
-    title: "Our Pastors",
-    description:
-      "Meet the pastoral leadership serving Hillcity International Ministries.",
-    href: "/about/pastors",
-    Icon: Users,
+    title: "Christ-Centered",
+    description: "Proclaiming Jesus Christ as Lord and the center of all we do.",
+    Icon: Cross,
+  },
+  {
+    title: "Love-Rooted",
+    description: "Expressing the love of Christ through faith and service.",
+    Icon: Heart,
+  },
+  {
+    title: "Holy Spirit-Inspired",
+    description: "Depending on the Holy Spirit for guidance and empowerment.",
+    Icon: Sparkles,
   },
 ];
 
 export default function AboutPage() {
   return (
-    <main>
-      <section className="about-hero">
+    <main className="hillcity-about">
+      {/* INTRODUCTION */}
+      <section className="about-new-hero">
         <div className="container centered">
           <span className="eyebrow">GET TO KNOW US</span>
           <h1>About Hillcity</h1>
           <p>
-            A Christ-centered ministry committed to sharing
-            the gospel of Jesus Christ and reaching the world
-            with His love.
+            A Bible-based, Christ-centered ministry proclaiming
+            the supremacy of Jesus Christ and helping believers
+            discover who they are in Him.
           </p>
         </div>
       </section>
 
-      <section className="section">
-        <div className="container">
-          <div className="section-heading centered">
+      {/* WHO WE ARE */}
+      <section className="section about-new-intro">
+        <div className="container about-new-intro-grid">
+          <div>
             <span className="eyebrow">WHO WE ARE</span>
-            <h2>Discover Our Ministry</h2>
+
+            <h2>
+              A City Set on a Hill.
+              <br />
+              A Light to the World.
+            </h2>
+
             <p>
-              Learn more about our purpose, beliefs,
-              and the people serving the ministry.
+              Inspired by Matthew 5:14, Hillcity International
+              Ministries exists to make Jesus Christ known
+              and equip believers to live in the fullness
+              of their identity and inheritance in Him.
+            </p>
+
+            <p>
+              Through biblical teaching, evangelism,
+              discipleship, and compassionate outreach,
+              we seek to share the transforming power
+              of the gospel with our world.
             </p>
           </div>
 
-          <div className="about-grid">
-            {aboutSections.map(
-              ({ title, description, href, Icon }) => (
-                <Link
-                  href={href}
-                  className="about-card"
-                  key={href}
-                >
-                  <div className="about-icon">
-                    <Icon size={27} />
-                  </div>
-                  <h3>{title}</h3>
-                  <p>{description}</p>
-                  <span className="text-link">
-                    Learn More <ArrowRight size={17} />
-                  </span>
-                </Link>
-              )
-            )}
+          <div className="about-new-intro-image">
+            <Image
+              src="/images/outreach/Outreach 2.jpeg"
+              alt="Hillcity International Ministries community outreach"
+              fill
+              sizes="(max-width: 900px) 100vw, 45vw"
+              style={{ objectFit: "cover" }}
+            />
           </div>
+        </div>
+      </section>
+
+      {/* VISION AND MISSION */}
+      <section className="section about-new-purpose">
+        <div className="container">
+          <div className="about-new-section-heading centered">
+            <span className="eyebrow">OUR PURPOSE</span>
+            <h2>Our Vision & Mission</h2>
+          </div>
+
+          <div className="about-new-purpose-grid">
+            <div className="about-new-purpose-card">
+              <span className="eyebrow">OUR VISION</span>
+
+              <h3>
+                Proclaiming the Supremacy of Jesus Christ.
+              </h3>
+
+              <Link className="text-link" href="/about/vision">
+                Explore Our Vision
+                <ArrowRight size={17} />
+              </Link>
+            </div>
+
+            <div className="about-new-purpose-card">
+              <span className="eyebrow">OUR MISSION</span>
+
+              <p>
+                To proclaim the supremacy of Christ while
+                empowering members to embrace their identity,
+                inheritance, and ability in Him.
+              </p>
+
+              <Link className="text-link" href="/about/mission">
+                Explore Our Mission
+                <ArrowRight size={17} />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* GUIDING CONVICTION */}
+      <section className="about-new-conviction">
+        <div className="container centered">
+          <span className="eyebrow">OUR GUIDING CONVICTION</span>
+
+          <h2>
+            The Word of God is our Map.
+            <br />
+            The Holy Spirit is our Guide.
+            <br />
+            Jesus is our Lord.
+          </h2>
+
+          <Compass size={30} />
+        </div>
+      </section>
+
+      {/* CORE VALUES */}
+      <section className="section about-new-values">
+        <div className="container">
+          <div className="about-new-section-heading centered">
+            <span className="eyebrow">WHAT GUIDES US</span>
+            <h2>Our Core Values</h2>
+          </div>
+
+          <div className="about-new-values-grid">
+            {coreValues.map(({ title, description, Icon }) => (
+              <div className="about-new-value-card" key={title}>
+                <Icon size={27} />
+                <h3>{title}</h3>
+                <p>{description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* STATEMENT OF FAITH */}
+      <section className="section about-new-faith">
+        <div className="container about-new-faith-grid">
+          <div>
+            <span className="eyebrow">WHAT WE BELIEVE</span>
+
+            <h2>Built on the Truth of God's Word.</h2>
+
+            <p>
+              Our faith is founded on the person and
+              finished work of Jesus Christ, the truth
+              of Scripture, and the transforming power
+              of the Holy Spirit.
+            </p>
+
+            <Link
+              className="btn btn-primary"
+              href="/about/statement-of-faith"
+            >
+              Read Our Statement of Faith
+              <ArrowRight size={18} />
+            </Link>
+          </div>
+
+          <div className="about-new-faith-quote">
+            <BookOpen size={35} />
+            <p>
+              "You are the light of the world.
+              A city set on a hill cannot be hidden."
+            </p>
+            <strong>MATTHEW 5:14</strong>
+          </div>
+        </div>
+      </section>
+
+      {/* PASTORAL LEADERSHIP */}
+      <section className="section about-new-pastors">
+        <div className="container">
+          <div className="about-new-pastors-grid">
+            <div className="about-new-pastors-image">
+              <Image
+                src="/images/pastors/pastors-together-2.png"
+                alt="Pastors Peace Bamidele and Oluwafoyinsola Faniyi"
+                fill
+                sizes="(max-width: 900px) 100vw, 45vw"
+                style={{ objectFit: "cover", objectPosition: "center" }}
+              />
+            </div>
+
+            <div className="about-new-pastors-copy">
+              <span className="eyebrow">MEET OUR PASTORS</span>
+
+              <h2>
+                Leading With Faith.
+                <br />
+                Serving With Love.
+              </h2>
+
+              <h3>
+                Peace Bamidele & Oluwafoyinsola Faniyi
+              </h3>
+
+              <p>
+                United by a passion for Jesus Christ
+                and the transforming power of God's Word,
+                Peace and Oluwafoyinsola share a commitment
+                to helping people discover their identity,
+                inheritance, and ability in Christ.
+              </p>
+
+              <p>
+                Through biblical teaching, discipleship,
+                evangelism, and compassionate outreach,
+                they seek to encourage believers to grow
+                in faith and share Christ's love with
+                their communities.
+              </p>
+
+              <Link className="text-link" href="/about/pastors">
+                Meet Our Pastors
+                <ArrowRight size={17} />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* JOIN US */}
+      <section className="section about-new-join centered">
+        <div className="container">
+          <Users size={32} />
+
+          <span className="eyebrow">GROW WITH US</span>
+
+          <h2>There's a Place for You at Hillcity.</h2>
+
+          <p>
+            Join us every Sunday for Bible Study
+            and grow in your understanding of
+            God's Word.
+          </p>
+
+          <strong>Sundays · 6:00–6:30 PM ET</strong>
+
+          <Link className="btn btn-primary" href="/join-us">
+            Join Bible Study
+            <ArrowRight size={18} />
+          </Link>
         </div>
       </section>
     </main>
