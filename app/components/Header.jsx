@@ -6,10 +6,10 @@ import Link from "next/link";
 import { Menu, X, ChevronDown } from "lucide-react";
 
 const aboutItems = [
-  { label: "Vision", href: "/about/vision" },
-  { label: "Mission", href: "/about/mission" },
-  { label: "Statement of Faith", href: "/about/statement-of-faith" },
-  { label: "Pastors", href: "/about/pastors" },
+  { label: "Vision", href: "/about#vision" },
+  { label: "Mission", href: "/about#mission" },
+  { label: "Statement of Faith", href: "/about#faith" },
+  { label: "Our Pastors", href: "/about#pastors" },
 ];
 
 const navItems = [
@@ -84,12 +84,15 @@ export default function Header() {
           className="mobile-nav"
           aria-label="Mobile navigation"
         >
-          <Link href="/" onClick={closeMenu}>Home</Link>
+          <Link href="/" onClick={closeMenu}>
+            Home
+          </Link>
 
           <div className="mobile-about-row">
             <Link href="/about" onClick={closeMenu}>
               About Hillcity
             </Link>
+
             <button
               type="button"
               aria-label="Toggle About submenu"
