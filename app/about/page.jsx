@@ -20,22 +20,26 @@ export const metadata = {
 const coreValues = [
   {
     title: "Bible-Based",
-    description: "Grounded in the truth and authority of God's Word.",
+    description:
+      "Grounded in the truth and authority of God's Word.",
     Icon: BookOpen,
   },
   {
     title: "Christ-Centered",
-    description: "Proclaiming Jesus Christ as Lord and the center of all we do.",
+    description:
+      "Proclaiming Jesus Christ as Lord and the center of all we do.",
     Icon: Cross,
   },
   {
     title: "Love-Rooted",
-    description: "Expressing the love of Christ through faith and service.",
+    description:
+      "Expressing the love of Christ through faith and service.",
     Icon: Heart,
   },
   {
     title: "Holy Spirit-Inspired",
-    description: "Depending on the Holy Spirit for guidance and empowerment.",
+    description:
+      "Depending on the Holy Spirit for guidance and empowerment.",
     Icon: Sparkles,
   },
 ];
@@ -49,9 +53,10 @@ export default function AboutPage() {
           <span className="eyebrow">GET TO KNOW US</span>
           <h1>About Hillcity</h1>
           <p>
-            A Bible-based, Christ-centered ministry proclaiming
-            the supremacy of Jesus Christ and helping believers
-            discover who they are in Him.
+            A Bible-based, Christ-centered ministry
+            proclaiming the supremacy of Jesus Christ
+            and helping believers discover who they
+            are in Him.
           </p>
         </div>
       </section>
@@ -69,34 +74,43 @@ export default function AboutPage() {
             </h2>
 
             <p>
-              Inspired by Matthew 5:14, Hillcity International
-              Ministries exists to make Jesus Christ known
-              and equip believers to live in the fullness
-              of their identity and inheritance in Him.
+              Founded in the United States in 2023,
+              Hillcity International Ministries is
+              committed to proclaiming the gospel of
+              Jesus Christ to the nations.
             </p>
 
             <p>
-              Through biblical teaching, evangelism,
-              discipleship, and compassionate outreach,
-              we seek to share the transforming power
-              of the gospel with our world.
+              Inspired by Matthew 5:14, we seek to
+              make Christ known, equip believers
+              to embrace their identity and
+              inheritance in Him, and demonstrate
+              His love through biblical teaching,
+              discipleship, and compassionate outreach.
             </p>
           </div>
 
           <div className="about-new-intro-image">
             <Image
               src="/images/outreach/Outreach 2.jpeg"
-              alt="Hillcity International Ministries community outreach"
+              alt="Hillcity community outreach"
               fill
               sizes="(max-width: 900px) 100vw, 45vw"
-              style={{ objectFit: "cover" }}
+              style={{
+                objectFit: "cover",
+                objectPosition: "center",
+              }}
             />
           </div>
         </div>
       </section>
 
-      {/* VISION AND MISSION */}
-      <section className="section about-new-purpose">
+      {/* VISION */}
+      <section
+        id="vision"
+        className="section about-new-purpose"
+        style={{ scrollMarginTop: "110px" }}
+      >
         <div className="container">
           <div className="about-new-section-heading centered">
             <span className="eyebrow">OUR PURPOSE</span>
@@ -108,28 +122,33 @@ export default function AboutPage() {
               <span className="eyebrow">OUR VISION</span>
 
               <h3>
-                Proclaiming the Supremacy of Jesus Christ.
+                Proclaiming the Supremacy of
+                Jesus Christ.
               </h3>
 
-              <Link className="text-link" href="/about/vision">
-                Explore Our Vision
-                <ArrowRight size={17} />
-              </Link>
+              <p>
+                We envision a world where Jesus
+                Christ is made known and believers
+                live in the fullness of their
+                identity in Him.
+              </p>
             </div>
 
-            <div className="about-new-purpose-card">
+            <div
+              id="mission"
+              className="about-new-purpose-card"
+              style={{ scrollMarginTop: "110px" }}
+            >
               <span className="eyebrow">OUR MISSION</span>
 
-              <p>
-                To proclaim the supremacy of Christ while
-                empowering members to embrace their identity,
-                inheritance, and ability in Him.
-              </p>
+              <h3>Equipping Believers. Proclaiming Christ.</h3>
 
-              <Link className="text-link" href="/about/mission">
-                Explore Our Mission
-                <ArrowRight size={17} />
-              </Link>
+              <p>
+                To proclaim the supremacy of Christ
+                while empowering members to embrace
+                their identity, inheritance, and
+                ability in Him.
+              </p>
             </div>
           </div>
         </div>
@@ -138,7 +157,9 @@ export default function AboutPage() {
       {/* GUIDING CONVICTION */}
       <section className="about-new-conviction">
         <div className="container centered">
-          <span className="eyebrow">OUR GUIDING CONVICTION</span>
+          <span className="eyebrow">
+            OUR GUIDING CONVICTION
+          </span>
 
           <h2>
             The Word of God is our Map.
@@ -161,68 +182,105 @@ export default function AboutPage() {
           </div>
 
           <div className="about-new-values-grid">
-            {coreValues.map(({ title, description, Icon }) => (
-              <div className="about-new-value-card" key={title}>
-                <Icon size={27} />
-                <h3>{title}</h3>
-                <p>{description}</p>
-              </div>
-            ))}
+            {coreValues.map(
+              ({ title, description, Icon }) => (
+                <div
+                  className="about-new-value-card"
+                  key={title}
+                >
+                  <Icon size={27} />
+                  <h3>{title}</h3>
+                  <p>{description}</p>
+                </div>
+              )
+            )}
           </div>
         </div>
       </section>
 
       {/* STATEMENT OF FAITH */}
-      <section className="section about-new-faith">
+      <section
+        id="statement-of-faith"
+        className="section about-new-faith"
+        style={{ scrollMarginTop: "110px" }}
+      >
         <div className="container about-new-faith-grid">
           <div>
-            <span className="eyebrow">WHAT WE BELIEVE</span>
+            <span className="eyebrow">
+              WHAT WE BELIEVE
+            </span>
 
-            <h2>Built on the Truth of God's Word.</h2>
+            <h2>
+              Built on the Truth of God's Word.
+            </h2>
 
             <p>
-              Our faith is founded on the person and
-              finished work of Jesus Christ, the truth
-              of Scripture, and the transforming power
-              of the Holy Spirit.
+              Hillcity International Ministries
+              is a Bible-based and Christ-centered
+              ministry founded on the vision of
+              proclaiming the supremacy of Jesus.
             </p>
 
-            <Link
-              className="btn btn-primary"
-              href="/about/statement-of-faith"
-            >
-              Read Our Statement of Faith
-              <ArrowRight size={18} />
-            </Link>
+            <p>
+              We believe in the truth of God's Word,
+              the person and finished work of
+              Jesus Christ, and the transforming
+              power of the Holy Spirit.
+            </p>
+
+            <p>
+              Through our union with Christ,
+              believers can discover their identity,
+              understand their inheritance, and
+              walk in the ability and power
+              available to them in Him.
+            </p>
           </div>
 
           <div className="about-new-faith-quote">
             <BookOpen size={35} />
+
             <p>
               "You are the light of the world.
               A city set on a hill cannot be hidden."
             </p>
+
             <strong>MATTHEW 5:14</strong>
           </div>
         </div>
       </section>
 
-      {/* PASTORAL LEADERSHIP */}
-      <section className="section about-new-pastors">
+      {/* PASTORS */}
+      <section
+        id="pastors"
+        className="section about-new-pastors"
+        style={{ scrollMarginTop: "110px" }}
+      >
         <div className="container">
           <div className="about-new-pastors-grid">
-            <div className="about-new-pastors-image">
+            <div
+              className="about-new-pastors-image"
+              style={{
+                minHeight: "450px",
+                background: "#FAF9F5",
+              }}
+            >
               <Image
                 src="/images/pastors/pastors-together-2.png"
-                alt="Pastors Peace Bamidele and Oluwafoyinsola Faniyi"
+                alt="Pastors Foyin and Peace Bamidele, co-founders of Hillcity International Ministries"
                 fill
                 sizes="(max-width: 900px) 100vw, 45vw"
-                style={{ objectFit: "cover", objectPosition: "center" }}
+                style={{
+                  objectFit: "contain",
+                  objectPosition: "center",
+                }}
               />
             </div>
 
             <div className="about-new-pastors-copy">
-              <span className="eyebrow">MEET OUR PASTORS</span>
+              <span className="eyebrow">
+                MEET OUR PASTORS
+              </span>
 
               <h2>
                 Leading With Faith.
@@ -231,29 +289,36 @@ export default function AboutPage() {
               </h2>
 
               <h3>
-                Peace Bamidele & Oluwafoyinsola Faniyi
+                Pastors Foyin & Peace Bamidele
               </h3>
 
               <p>
-                United by a passion for Jesus Christ
-                and the transforming power of God's Word,
-                Peace and Oluwafoyinsola share a commitment
-                to helping people discover their identity,
-                inheritance, and ability in Christ.
+                Foyin and Peace Bamidele founded
+                Hillcity International Ministries
+                in the United States in 2023,
+                driven by a shared mandate to
+                proclaim the gospel of Jesus
+                Christ to the nations and help
+                believers discover their identity,
+                inheritance, and ability in Him.
               </p>
 
               <p>
-                Through biblical teaching, discipleship,
-                evangelism, and compassionate outreach,
-                they seek to encourage believers to grow
-                in faith and share Christ's love with
-                their communities.
+                Peace has served as an ordained
+                minister since 2019. Together,
+                they lead the ministry through
+                biblical teaching, discipleship,
+                evangelism, and compassionate
+                outreach.
               </p>
 
-              <Link className="text-link" href="/about/pastors">
-                Meet Our Pastors
-                <ArrowRight size={17} />
-              </Link>
+              <p>
+                Their shared passion is to see
+                lives transformed through God's
+                Word and the love of Christ
+                demonstrated in communities
+                across Atlanta and beyond.
+              </p>
             </div>
           </div>
         </div>
@@ -266,7 +331,9 @@ export default function AboutPage() {
 
           <span className="eyebrow">GROW WITH US</span>
 
-          <h2>There's a Place for You at Hillcity.</h2>
+          <h2>
+            There's a Place for You at Hillcity.
+          </h2>
 
           <p>
             Join us every Sunday for Bible Study
@@ -274,9 +341,14 @@ export default function AboutPage() {
             God's Word.
           </p>
 
-          <strong>Sundays · 6:00–6:30 PM ET</strong>
+          <strong>
+            Sundays · 6:00–6:30 PM ET
+          </strong>
 
-          <Link className="btn btn-primary" href="/join-us">
+          <Link
+            className="btn btn-primary"
+            href="/join-us"
+          >
             Join Bible Study
             <ArrowRight size={18} />
           </Link>
