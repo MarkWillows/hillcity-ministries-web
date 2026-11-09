@@ -3428,3 +3428,284 @@ body {
   border-radius: 18px;
   box-shadow: 0 18px 45px #31551b18;
 }
+
+/* ==========================================
+   HILLCITY ABOUT PAGE
+   ========================================== */
+
+.hillcity-about .about-new-hero {
+  background: #f4f7ee;
+  padding: 65px 0;
+  text-align: center;
+}
+
+.hillcity-about .about-new-hero h1 {
+  font-size: clamp(40px, 5vw, 62px);
+  margin: 12px 0 16px;
+}
+
+.hillcity-about .about-new-hero p {
+  max-width: 660px;
+  margin: 0 auto;
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+.hillcity-about .about-new-intro-grid,
+.hillcity-about .about-new-faith-grid,
+.hillcity-about .about-new-pastors-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 55px;
+  align-items: center;
+}
+
+.hillcity-about .about-new-intro h2 {
+  margin: 12px 0 20px;
+}
+
+.hillcity-about .about-new-intro p {
+  margin-bottom: 14px;
+}
+
+.hillcity-about .about-new-intro-image {
+  position: relative;
+  min-height: 350px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.hillcity-about .about-new-purpose {
+  background: #f8f9f5;
+}
+
+.hillcity-about .about-new-section-heading {
+  margin-bottom: 30px;
+}
+
+.hillcity-about .about-new-section-heading h2 {
+  margin: 10px 0;
+}
+
+.hillcity-about .about-new-purpose-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+
+.hillcity-about .about-new-purpose-card {
+  background: white;
+  border: 1px solid #e2e8d9;
+  border-radius: 15px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.hillcity-about .about-new-purpose-card h3 {
+  font-size: 27px;
+  line-height: 1.35;
+  margin: 16px 0 22px;
+}
+
+.hillcity-about .about-new-purpose-card p {
+  font-size: 17px;
+  line-height: 1.75;
+  margin: 16px 0 22px;
+}
+
+.hillcity-about .about-new-purpose-card .text-link {
+  margin-top: auto;
+}
+
+.hillcity-about .about-new-conviction {
+  background: #31551b;
+  color: white;
+  text-align: center;
+  padding: 65px 0;
+}
+
+.hillcity-about .about-new-conviction .eyebrow {
+  color: #f2b544;
+}
+
+.hillcity-about .about-new-conviction h2 {
+  color: white;
+  font-size: clamp(25px, 3vw, 39px);
+  line-height: 1.5;
+  margin: 18px auto 20px;
+}
+
+.hillcity-about .about-new-conviction svg {
+  color: #f2b544;
+}
+
+.hillcity-about .about-new-values-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.hillcity-about .about-new-value-card {
+  background: #faf9f5;
+  border: 1px solid #e2e8d9;
+  border-radius: 14px;
+  padding: 25px 20px;
+}
+
+.hillcity-about .about-new-value-card svg {
+  color: #78923a;
+  margin-bottom: 16px;
+}
+
+.hillcity-about .about-new-value-card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.hillcity-about .about-new-value-card p {
+  font-size: 14px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.hillcity-about .about-new-faith {
+  background: #f4f7ee;
+}
+
+.hillcity-about .about-new-faith h2 {
+  margin: 12px 0 16px;
+}
+
+.hillcity-about .about-new-faith p {
+  margin-bottom: 23px;
+}
+
+.hillcity-about .about-new-faith-quote {
+  background: white;
+  border-radius: 16px;
+  padding: 38px;
+  border: 1px solid #e2e8d9;
+}
+
+.hillcity-about .about-new-faith-quote svg {
+  color: #78923a;
+}
+
+.hillcity-about .about-new-faith-quote p {
+  font-family: Georgia, serif;
+  font-size: 27px;
+  line-height: 1.45;
+  color: #31551b;
+  margin: 18px 0;
+}
+
+.hillcity-about .about-new-faith-quote strong {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #78923a;
+}
+
+.hillcity-about .about-new-pastors-image {
+  position: relative;
+  min-height: 450px;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.hillcity-about .about-new-pastors-copy h2 {
+  margin: 12px 0 20px;
+}
+
+.hillcity-about .about-new-pastors-copy h3 {
+  color: #31551b;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.hillcity-about .about-new-pastors-copy p {
+  margin-bottom: 15px;
+}
+
+.hillcity-about .about-new-join {
+  background: #faf9f5;
+  text-align: center;
+}
+
+.hillcity-about .about-new-join .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hillcity-about .about-new-join svg {
+  color: #78923a;
+  margin-bottom: 14px;
+}
+
+.hillcity-about .about-new-join h2 {
+  margin: 12px 0 15px;
+}
+
+.hillcity-about .about-new-join p {
+  max-width: 530px;
+  margin: 0 auto 15px;
+}
+
+.hillcity-about .about-new-join strong {
+  color: #31551b;
+  margin-bottom: 23px;
+}
+
+@media (max-width: 900px) {
+  .hillcity-about .about-new-intro-grid,
+  .hillcity-about .about-new-faith-grid,
+  .hillcity-about .about-new-pastors-grid,
+  .hillcity-about .about-new-purpose-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .hillcity-about .about-new-values-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hillcity-about .about-new-intro-image {
+    min-height: 300px;
+  }
+
+  .hillcity-about .about-new-pastors-image {
+    min-height: 390px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hillcity-about .about-new-hero {
+    padding: 45px 0;
+  }
+
+  .hillcity-about .about-new-values-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hillcity-about .about-new-purpose-card {
+    padding: 24px;
+  }
+
+  .hillcity-about .about-new-conviction {
+    padding: 48px 0;
+  }
+
+  .hillcity-about .about-new-faith-quote {
+    padding: 26px;
+  }
+
+  .hillcity-about .about-new-faith-quote p {
+    font-size: 23px;
+  }
+
+  .hillcity-about .about-new-pastors-image {
+    min-height: 320px;
+  }
+}
