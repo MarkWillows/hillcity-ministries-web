@@ -3928,3 +3928,32 @@ body {
     padding: 24px;
   }
 }
+
+/* PASTORS PAGE — PHOTO AND BIOGRAPHY */
+
+.hillcity-about-detail .about-detail-pastors-photo {
+  position: relative;
+  min-height: 510px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #f4f7ee;
+}
+
+.hillcity-about-detail .about-detail-pastors-copy h2 {
+  font-size: clamp(30px, 3vw, 42px);
+  line-height: 1.2;
+  margin: 12px 0 10px;
+}
+
+.hillcity-about-detail .about-detail-pastors-copy h3 {
+  color: #78923a;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 600px) {
+  .hillcity-about-detail .about-detail-pastors-photo {
+    min-height: 350px;
+  }
+}
