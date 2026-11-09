@@ -1,20 +1,19 @@
 
 import Link from "next/link";
+import Image from "next/image";
 import Script from "next/script";
 import {
-  MapPin,
-  Hospital,
-  Globe,
-  HeartHandshake,
   Instagram,
   ArrowUpRight,
   ArrowRight,
+  HeartHandshake,
+  PlayCircle,
 } from "lucide-react";
 
 export const metadata = {
   title: "Missions",
   description:
-    "Discover the missions and evangelism mandate of Hillcity International Ministries.",
+    "Explore the SHOP evangelism mandate, outreach activities, and ministry videos of Hillcity International Ministries.",
 };
 
 const missions = [
@@ -22,48 +21,54 @@ const missions = [
     letter: "S",
     title: "Street Evangelism",
     description:
-      "Taking the gospel to our communities, sharing the love of Jesus Christ through personal evangelism and compassionate outreach.",
-    Icon: MapPin,
+      "Sharing the gospel and demonstrating Christ's love through personal evangelism and compassionate community outreach.",
+    image: "/images/outreach/Outreach 1.jpeg",
+    imageAlt: "Hillcity street and community outreach",
   },
   {
     letter: "H",
     title: "Hospital Evangelism",
     description:
-      "Bringing encouragement, prayer, and the hope of Christ to people facing illness and difficult circumstances.",
-    Icon: Hospital,
+      "Bringing biblical teaching, prayer, encouragement, and the hope of Christ to people in hospital settings.",
+    image: "/images/outreach/Outreach 2.jpeg",
+    imageAlt: "Hillcity ministry outreach",
   },
   {
     letter: "O",
     title: "Online Evangelism",
     description:
-      "Using digital platforms to proclaim the gospel, share biblical teachings, and reach people wherever they are.",
-    Icon: Globe,
+      "Reaching people through online Bible study, biblical teachings, and digital evangelism.",
+    image: null,
   },
   {
     letter: "P",
     title: "Prison Evangelism",
     description:
       "Sharing the message of salvation, restoration, and new life in Jesus Christ with incarcerated individuals.",
-    Icon: HeartHandshake,
+    image: null,
   },
+];
+
+const videos = [
+  { src: "/videos/vid 1.mp4", title: "Ministry Moment 01" },
+  { src: "/videos/vid 2.mp4", title: "Ministry Moment 02" },
+  { src: "/videos/vid 3.mp4", title: "Ministry Moment 03" },
+  { src: "/videos/vid 4.mp4", title: "Ministry Moment 04" },
+  { src: "/videos/vid 5.mp4", title: "Ministry Moment 05" },
 ];
 
 export default function MissionsPage() {
   return (
     <main>
-      {/* PAGE INTRODUCTION */}
+      {/* HERO */}
       <section className="missions-hero">
         <div className="container centered">
-          <span className="eyebrow">
-            FAITH IN ACTION
-          </span>
-
-          <h1>Missions</h1>
-
+          <span className="eyebrow">FAITH IN ACTION</span>
+          <h1>Missions & Outreach</h1>
           <p>
-            Sharing the gospel, demonstrating
-            Christ's love, and reaching lives
-            wherever God leads us.
+            Sharing Christ. Touching lives.
+            Bringing the hope of the gospel
+            to people wherever they are.
           </p>
         </div>
       </section>
@@ -75,47 +80,101 @@ export default function MissionsPage() {
             <span className="eyebrow">
               OUR EVANGELISM MANDATE
             </span>
-
             <h2>The SHOP Mandate</h2>
-
             <p>
-              Our mission is to reach people with
-              the gospel of Jesus Christ through
-              four areas of evangelism.
+              Four expressions of one mission:
+              proclaiming Jesus Christ and
+              demonstrating His love.
             </p>
           </div>
 
-          <div className="missions-grid">
-            {missions.map(
-              ({
-                letter,
-                title,
-                description,
-                Icon,
-              }) => (
-                <article
-                  className="missions-card"
-                  key={letter}
-                >
-                  <div className="missions-icon">
-                    <Icon size={26} />
-                  </div>
+          <div className="hillcity-shop-media-grid">
+            {missions.map((mission) => (
+              <article
+                className="hillcity-shop-media-card"
+                key={mission.letter}
+              >
+                <div className="hillcity-shop-media-image">
+                  {mission.image ? (
+                    <Image
+                      src={mission.image}
+                      alt={mission.imageAlt}
+                      fill
+                      sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 25vw"
+                      style={{
+                        objectFit: "cover",
+                      }}
+                    />
+                  ) : (
+                    <div className="hillcity-shop-placeholder">
+                      <span>{mission.letter}</span>
+                      <p>
+                        {mission.letter === "O"
+                          ? "Sharing God's Word Online"
+                          : "Hope. Restoration. New Life."}
+                      </p>
+                    </div>
+                  )}
+                </div>
 
-                  <span className="missions-letter">
-                    {letter}
+                <div className="hillcity-shop-media-copy">
+                  <span className="eyebrow">
+                    {mission.letter} — SHOP
                   </span>
-
-                  <h3>{title}</h3>
-
-                  <p>{description}</p>
-                </article>
-              )
-            )}
+                  <h3>{mission.title}</h3>
+                  <p>{mission.description}</p>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* LIVE INSTAGRAM MISSIONS FEED */}
+      {/* VIDEO GALLERY */}
+      <section className="section hillcity-video-section">
+        <div className="container">
+          <div className="section-heading centered">
+            <span className="eyebrow">
+              REAL MOMENTS. REAL MINISTRY.
+            </span>
+            <h2>Hillcity in Action</h2>
+            <p>
+              A glimpse into our evangelism,
+              teaching, and compassionate outreach.
+            </p>
+          </div>
+
+          <div className="hillcity-video-grid">
+            {videos.map((video) => (
+              <article
+                className="hillcity-video-card"
+                key={video.src}
+              >
+                <video
+                  controls
+                  preload="metadata"
+                  playsInline
+                  aria-label={video.title}
+                >
+                  <source
+                    src={video.src}
+                    type="video/mp4"
+                  />
+                  Your browser does not support
+                  HTML5 video.
+                </video>
+
+                <div className="hillcity-video-caption">
+                  <PlayCircle size={19} />
+                  <span>{video.title}</span>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* INSTAGRAM */}
       <section className="section missions-updates">
         <div className="container">
           <div className="missions-social-panel">
@@ -131,8 +190,8 @@ export default function MissionsPage() {
               <h2>Missions in Action</h2>
 
               <p>
-                Explore our latest outreach activities,
-                stories, and updates from the field.
+                Explore outreach activities,
+                stories, and ministry updates.
               </p>
             </div>
 
@@ -164,7 +223,7 @@ export default function MissionsPage() {
         </div>
       </section>
 
-      {/* PARTNER WITH THE MISSION */}
+      {/* PARTNER */}
       <section className="section missions-partner">
         <div className="container centered">
           <HeartHandshake
@@ -176,8 +235,8 @@ export default function MissionsPage() {
 
           <p>
             Through prayer, service, and generosity,
-            you can help us share the gospel
-            and extend the love of Christ.
+            you can help share the gospel and
+            extend Christ's love.
           </p>
 
           <Link
