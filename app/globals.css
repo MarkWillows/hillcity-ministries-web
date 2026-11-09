@@ -3957,3 +3957,125 @@ body {
     min-height: 350px;
   }
 }
+
+/* HILLCITY MISSIONS — PHOTO CARDS */
+
+.hillcity-shop-media-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.hillcity-shop-media-card {
+  background: #fff;
+  border: 1px solid #dfe7d6;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.hillcity-shop-media-image {
+  position: relative;
+  height: 210px;
+  overflow: hidden;
+  background: #edf2e5;
+}
+
+.hillcity-shop-media-copy {
+  padding: 24px;
+}
+
+.hillcity-shop-media-copy h3 {
+  color: #31551b;
+  margin: 12px 0;
+  font-size: 23px;
+  line-height: 1.25;
+}
+
+.hillcity-shop-media-copy p {
+  line-height: 1.7;
+  margin: 0;
+}
+
+.hillcity-shop-placeholder {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  color: #31551b;
+}
+
+.hillcity-shop-placeholder span {
+  font-family: Georgia, serif;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.hillcity-shop-placeholder p {
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+/* VIDEO GALLERY */
+
+.hillcity-video-section {
+  background: #f5f7f0;
+}
+
+.hillcity-video-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.hillcity-video-card {
+  background: #fff;
+  border: 1px solid #e0e6d8;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.hillcity-video-card video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: contain;
+  background: #152114;
+}
+
+.hillcity-video-caption {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 18px;
+  color: #31551b;
+  font-weight: 600;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1100px) {
+  .hillcity-shop-media-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 800px) {
+  .hillcity-video-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .hillcity-shop-media-grid,
+  .hillcity-video-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hillcity-shop-media-image {
+    height: 230px;
+  }
+}
