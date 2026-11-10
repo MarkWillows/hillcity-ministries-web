@@ -32,30 +32,25 @@ export default function Header() {
 
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
-  const [desktopAboutOpen, setDesktopAboutOpen] =
-    useState(false);
+  const [desktopAboutOpen, setDesktopAboutOpen] = useState(false);
 
-  const desktopDropdownRef = useRef(null);
+  const dropdownRef = useRef(null);
 
-  function closeMobileMenu() {
+  function closeMenus() {
     setMobileOpen(false);
     setMobileAboutOpen(false);
-  }
-
-  function closeAllMenus() {
-    closeMobileMenu();
     setDesktopAboutOpen(false);
   }
 
   useEffect(() => {
-    closeAllMenus();
+    closeMenus();
   }, [pathname]);
 
   useEffect(() => {
-    function handleOutsideClick(event) {
+    function handleClickOutside(event) {
       if (
-        desktopDropdownRef.current &&
-        !desktopDropdownRef.current.contains(event.target)
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target)
       ) {
         setDesktopAboutOpen(false);
       }
@@ -63,36 +58,30 @@ export default function Header() {
 
     function handleEscape(event) {
       if (event.key === "Escape") {
-        closeAllMenus();
+        closeMenus();
       }
     }
 
-    document.addEventListener(
-      "pointerdown",
-      handleOutsideClick
-    );
+    document.addEventListener("pointerdown", handleClickOutside);
     document.addEventListener("keydown", handleEscape);
 
     return () => {
       document.removeEventListener(
         "pointerdown",
-        handleOutsideClick
+        handleClickOutside
       );
-      document.removeEventListener(
-        "keydown",
-        handleEscape
-      );
+      document.removeEventListener("keydown", handleEscape);
     };
   }, []);
 
-  const isAboutActive = pathname.startsWith("/about");
+  const isAboutActive = pathname?.startsWith("/about");
 
   return (
     <header
       className="site-header"
       style={{
-        background: "#ffffff",
-        borderBottom: "1px solid #e7ebdd",
+        background: "#FFFFFF",
+        borderBottom: "1px solid #E7EBDD",
         position: "sticky",
         top: 0,
         zIndex: 100,
@@ -111,7 +100,7 @@ export default function Header() {
         <Link
           href="/"
           aria-label="Hillcity International Ministries Home"
-          onClick={closeAllMenus}
+          onClick={closeMenus}
           style={{
             display: "flex",
             alignItems: "center",
@@ -141,17 +130,15 @@ export default function Header() {
           <Link
             href="/"
             className={
-              pathname === "/"
-                ? "nav-link active"
-                : "nav-link"
+              pathname === "/" ? "nav-link active" : "nav-link"
             }
-            onClick={closeAllMenus}
+            onClick={closeMenus}
           >
             Home
           </Link>
 
           <div
-            ref={desktopDropdownRef}
+            ref={dropdownRef}
             className="hillcity-about-menu"
           >
             <button
@@ -163,7 +150,7 @@ export default function Header() {
               }
               aria-expanded={desktopAboutOpen}
               aria-haspopup="true"
-              aria-controls="hillcity-desktop-about-dropdown"
+              aria-controls="hillcity-about-dropdown"
               onClick={() =>
                 setDesktopAboutOpen((open) => !open)
               }
@@ -182,7 +169,7 @@ export default function Header() {
 
             {desktopAboutOpen && (
               <div
-                id="hillcity-desktop-about-dropdown"
+                id="hillcity-about-dropdown"
                 className="hillcity-about-dropdown"
               >
                 {aboutLinks.map((item) => (
@@ -194,7 +181,7 @@ export default function Header() {
                         ? "hillcity-dropdown-link active"
                         : "hillcity-dropdown-link"
                     }
-                    onClick={closeAllMenus}
+                    onClick={closeMenus}
                   >
                     {item.label}
                   </Link>
@@ -212,21 +199,19 @@ export default function Header() {
                   ? "nav-link active"
                   : "nav-link"
               }
-              onClick={closeAllMenus}
+              onClick={closeMenus}
             >
               {item.label}
             </Link>
           ))}
         </nav>
 
-        {/* MOBILE MENU BUTTON */}
+        {/* MOBILE MENU TOGGLE */}
         <button
           type="button"
           className="hillcity-mobile-toggle"
           aria-label={
-            mobileOpen
-              ? "Close navigation"
-              : "Open navigation"
+            mobileOpen ? "Close navigation" : "Open navigation"
           }
           aria-expanded={mobileOpen}
           aria-controls="hillcity-mobile-navigation"
@@ -236,11 +221,7 @@ export default function Header() {
             setDesktopAboutOpen(false);
           }}
         >
-          {mobileOpen ? (
-            <X size={25} />
-          ) : (
-            <Menu size={25} />
-          )}
+          {mobileOpen ? <X size={25} /> : <Menu size={25} />}
         </button>
       </div>
 
@@ -259,11 +240,9 @@ export default function Header() {
         <Link
           href="/"
           className={
-            pathname === "/"
-              ? "nav-link active"
-              : "nav-link"
+            pathname === "/" ? "nav-link active" : "nav-link"
           }
-          onClick={closeMobileMenu}
+          onClick={closeMenus}
         >
           Home
         </Link>
@@ -276,7 +255,7 @@ export default function Header() {
               : "nav-link hillcity-mobile-about"
           }
           aria-expanded={mobileAboutOpen}
-          aria-controls="hillcity-mobile-about-submenu"
+          aria-controls="hillcity-mobile-submenu"
           onClick={() =>
             setMobileAboutOpen((open) => !open)
           }
@@ -295,11 +274,11 @@ export default function Header() {
 
         {mobileAboutOpen && (
           <div
-            id="hillcity-mobile-about-submenu"
+            id="hillcity-mobile-submenu"
             className="hillcity-mobile-submenu"
           >
             {aboutLinks.map((item) => (
-              <Link
+              <a
                 key={item.href}
                 href={item.href}
                 className={
@@ -307,10 +286,10 @@ export default function Header() {
                     ? "hillcity-mobile-submenu-link active"
                     : "hillcity-mobile-submenu-link"
                 }
-                onClick={closeMobileMenu}
+                onClick={closeMenus}
               >
                 {item.label}
-              </Link>
+              </a>
             ))}
           </div>
         )}
@@ -324,7 +303,7 @@ export default function Header() {
                 ? "nav-link active"
                 : "nav-link"
             }
-            onClick={closeMobileMenu}
+            onClick={closeMenus}
           >
             {item.label}
           </Link>
@@ -463,17 +442,26 @@ export default function Header() {
           .hillcity-mobile-submenu {
             display: flex;
             flex-direction: column;
+            position: relative;
+            z-index: 10;
             padding: 5px 0 8px 16px;
             background: #f8faf4;
           }
 
           .hillcity-mobile-submenu-link {
             display: block;
+            position: relative;
+            z-index: 11;
+            width: 100%;
+            min-height: 44px;
             padding: 12px;
             color: #31551b;
             font-size: 14px;
             text-decoration: none;
             border-bottom: 1px solid #e7ebdd;
+            cursor: pointer;
+            pointer-events: auto;
+            touch-action: manipulation;
           }
 
           .hillcity-mobile-submenu-link.active,
