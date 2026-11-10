@@ -18,7 +18,7 @@ export const metadata = {
 
 const missions = [
   {
-    title: "Street Evangelism",
+    title: "S – Street Evangelism",
     description:
       "Sharing the gospel and demonstrating Christ's love through personal evangelism and compassionate community outreach.",
     type: "image",
@@ -26,14 +26,14 @@ const missions = [
     alt: "Hillcity community outreach",
   },
   {
-    title: "Hospital Evangelism",
+    title: "H – Hospital Evangelism",
     description:
       "Bringing biblical teaching, prayer, encouragement, and the hope of Christ to people in hospital settings.",
     type: "video",
     src: "/videos/vid 1.mp4",
   },
   {
-    title: "Online Evangelism",
+    title: "O – Online Evangelism",
     description:
       "Reaching people through online Bible study, biblical teachings, and digital evangelism.",
     type: "image",
@@ -41,7 +41,7 @@ const missions = [
     alt: "Online Christian Bible study",
   },
   {
-    title: "Prison Evangelism",
+    title: "P – Prison Evangelism",
     description:
       "Sharing the message of salvation, restoration, and new life in Jesus Christ with incarcerated individuals.",
     type: "image",
@@ -157,7 +157,7 @@ export default function MissionsPage() {
                   )}
                 </div>
 
-                {/* CLEAN CARD CONTENT */}
+                {/* CARD CONTENT */}
                 <div
                   className="missions-card-copy"
                   style={{
