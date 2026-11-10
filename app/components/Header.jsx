@@ -4,7 +4,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, X } from "lucide-react";
 
 const aboutLinks = [
@@ -29,88 +29,70 @@ const mainLinks = [
 
 export default function Header() {
   const pathname = usePathname();
-  const router = useRouter();
 
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [aboutOpen, setAboutOpen] = useState(false);
+  const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
+  const [desktopAboutOpen, setDesktopAboutOpen] =
+    useState(false);
 
-  const dropdownRef = useRef(null);
+  const desktopDropdownRef = useRef(null);
 
-  function closeMenus() {
+  function closeMobileMenu() {
     setMobileOpen(false);
-    setAboutOpen(false);
+    setMobileAboutOpen(false);
   }
 
-  function handleMobileNavigation(event, href) {
-    event.preventDefault();
-
-    closeMenus();
-
-    // Navigate directly to the selected page.
-    router.push(href);
-
-    // Ensure the page starts at the top.
-    window.scrollTo({
-      top: 0,
-      behavior: "instant",
-    });
+  function closeAllMenus() {
+    closeMobileMenu();
+    setDesktopAboutOpen(false);
   }
 
   useEffect(() => {
-    closeMenus();
+    closeAllMenus();
   }, [pathname]);
 
   useEffect(() => {
-    function handleClickOutside(event) {
+    function handleOutsideClick(event) {
       if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target)
+        desktopDropdownRef.current &&
+        !desktopDropdownRef.current.contains(event.target)
       ) {
-        setAboutOpen(false);
+        setDesktopAboutOpen(false);
       }
     }
 
     function handleEscape(event) {
       if (event.key === "Escape") {
-        closeMenus();
+        closeAllMenus();
       }
     }
 
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener(
+      "pointerdown",
+      handleOutsideClick
+    );
     document.addEventListener("keydown", handleEscape);
 
     return () => {
       document.removeEventListener(
-        "mousedown",
-        handleClickOutside
+        "pointerdown",
+        handleOutsideClick
       );
-      document.removeEventListener("keydown", handleEscape);
+      document.removeEventListener(
+        "keydown",
+        handleEscape
+      );
     };
   }, []);
 
   const isAboutActive = pathname.startsWith("/about");
 
-  const renderNavLink = (item) => (
-    <Link
-      key={item.href}
-      href={item.href}
-      className={
-        pathname === item.href
-          ? "nav-link active"
-          : "nav-link"
-      }
-      onClick={closeMenus}
-    >
-      {item.label}
-    </Link>
-  );
-
   return (
     <header
       className="site-header"
       style={{
-        background: "#FFFFFF",
-        borderBottom: "1px solid #E7EBDD",
+        background: "#ffffff",
+        borderBottom: "1px solid #e7ebdd",
         position: "sticky",
         top: 0,
         zIndex: 100,
@@ -129,7 +111,7 @@ export default function Header() {
         <Link
           href="/"
           aria-label="Hillcity International Ministries Home"
-          onClick={closeMenus}
+          onClick={closeAllMenus}
           style={{
             display: "flex",
             alignItems: "center",
@@ -156,10 +138,20 @@ export default function Header() {
           className="hillcity-desktop-nav"
           aria-label="Main navigation"
         >
-          {renderNavLink(mainLinks[0])}
+          <Link
+            href="/"
+            className={
+              pathname === "/"
+                ? "nav-link active"
+                : "nav-link"
+            }
+            onClick={closeAllMenus}
+          >
+            Home
+          </Link>
 
           <div
-            ref={dropdownRef}
+            ref={desktopDropdownRef}
             className="hillcity-about-menu"
           >
             <button
@@ -169,17 +161,18 @@ export default function Header() {
                   ? "nav-link active hillcity-about-trigger"
                   : "nav-link hillcity-about-trigger"
               }
-              aria-expanded={aboutOpen}
+              aria-expanded={desktopAboutOpen}
               aria-haspopup="true"
-              aria-controls="hillcity-about-dropdown"
-              onClick={() => setAboutOpen((open) => !open)}
+              aria-controls="hillcity-desktop-about-dropdown"
+              onClick={() =>
+                setDesktopAboutOpen((open) => !open)
+              }
             >
               About Hillcity
-
               <ChevronDown
                 size={15}
                 style={{
-                  transform: aboutOpen
+                  transform: desktopAboutOpen
                     ? "rotate(180deg)"
                     : "rotate(0deg)",
                   transition: "transform 0.2s ease",
@@ -187,9 +180,9 @@ export default function Header() {
               />
             </button>
 
-            {aboutOpen && (
+            {desktopAboutOpen && (
               <div
-                id="hillcity-about-dropdown"
+                id="hillcity-desktop-about-dropdown"
                 className="hillcity-about-dropdown"
               >
                 {aboutLinks.map((item) => (
@@ -201,7 +194,7 @@ export default function Header() {
                         ? "hillcity-dropdown-link active"
                         : "hillcity-dropdown-link"
                     }
-                    onClick={closeMenus}
+                    onClick={closeAllMenus}
                   >
                     {item.label}
                   </Link>
@@ -210,7 +203,20 @@ export default function Header() {
             )}
           </div>
 
-          {mainLinks.slice(1).map(renderNavLink)}
+          {mainLinks.slice(1).map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={
+                pathname === item.href
+                  ? "nav-link active"
+                  : "nav-link"
+              }
+              onClick={closeAllMenus}
+            >
+              {item.label}
+            </Link>
+          ))}
         </nav>
 
         {/* MOBILE MENU BUTTON */}
@@ -226,7 +232,8 @@ export default function Header() {
           aria-controls="hillcity-mobile-navigation"
           onClick={() => {
             setMobileOpen((open) => !open);
-            setAboutOpen(false);
+            setMobileAboutOpen(false);
+            setDesktopAboutOpen(false);
           }}
         >
           {mobileOpen ? (
@@ -238,96 +245,91 @@ export default function Header() {
       </div>
 
       {/* MOBILE NAVIGATION */}
-      {mobileOpen && (
-        <nav
-          id="hillcity-mobile-navigation"
-          className="hillcity-mobile-nav"
-          aria-label="Mobile navigation"
+      <nav
+        id="hillcity-mobile-navigation"
+        className={
+          mobileOpen
+            ? "hillcity-mobile-nav is-open"
+            : "hillcity-mobile-nav"
+        }
+        aria-label="Mobile navigation"
+        aria-hidden={!mobileOpen}
+        inert={!mobileOpen}
+      >
+        <Link
+          href="/"
+          className={
+            pathname === "/"
+              ? "nav-link active"
+              : "nav-link"
+          }
+          onClick={closeMobileMenu}
         >
+          Home
+        </Link>
+
+        <button
+          type="button"
+          className={
+            isAboutActive
+              ? "nav-link active hillcity-mobile-about"
+              : "nav-link hillcity-mobile-about"
+          }
+          aria-expanded={mobileAboutOpen}
+          aria-controls="hillcity-mobile-about-submenu"
+          onClick={() =>
+            setMobileAboutOpen((open) => !open)
+          }
+        >
+          About Hillcity
+          <ChevronDown
+            size={17}
+            style={{
+              transform: mobileAboutOpen
+                ? "rotate(180deg)"
+                : "rotate(0deg)",
+              transition: "transform 0.2s ease",
+            }}
+          />
+        </button>
+
+        {mobileAboutOpen && (
+          <div
+            id="hillcity-mobile-about-submenu"
+            className="hillcity-mobile-submenu"
+          >
+            {aboutLinks.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={
+                  pathname === item.href
+                    ? "hillcity-mobile-submenu-link active"
+                    : "hillcity-mobile-submenu-link"
+                }
+                onClick={closeMobileMenu}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+        )}
+
+        {mainLinks.slice(1).map((item) => (
           <Link
-            href="/"
-            className="nav-link"
-            onClick={(event) =>
-              handleMobileNavigation(event, "/")
-            }
-          >
-            Home
-          </Link>
-
-          <button
-            type="button"
+            key={item.href}
+            href={item.href}
             className={
-              isAboutActive
-                ? "nav-link active hillcity-mobile-about"
-                : "nav-link hillcity-mobile-about"
+              pathname === item.href
+                ? "nav-link active"
+                : "nav-link"
             }
-            aria-expanded={aboutOpen}
-            aria-controls="hillcity-mobile-submenu"
-            onClick={() =>
-              setAboutOpen((open) => !open)
-            }
+            onClick={closeMobileMenu}
           >
-            About Hillcity
-
-            <ChevronDown
-              size={17}
-              style={{
-                transform: aboutOpen
-                  ? "rotate(180deg)"
-                  : "rotate(0deg)",
-                transition: "transform 0.2s ease",
-              }}
-            />
-          </button>
-
-          {aboutOpen && (
-            <div
-              id="hillcity-mobile-submenu"
-              className="hillcity-mobile-submenu"
-            >
-              {aboutLinks.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={
-                    pathname === item.href
-                      ? "hillcity-mobile-submenu-link active"
-                      : "hillcity-mobile-submenu-link"
-                  }
-                  onClick={(event) =>
-                    handleMobileNavigation(
-                      event,
-                      item.href
-                    )
-                  }
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </div>
-          )}
-
-          {mainLinks.slice(1).map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={
-                pathname === item.href
-                  ? "nav-link active"
-                  : "nav-link"
-              }
-              onClick={(event) =>
-                handleMobileNavigation(
-                  event,
-                  item.href
-                )
-              }
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
-      )}
+            {item.label}
+          </Link>
+        ))}
+      </nav>
 
       <style jsx global>{`
         .hillcity-desktop-nav {
@@ -410,7 +412,7 @@ export default function Header() {
         }
 
         .hillcity-mobile-nav {
-          display: none;
+          display: none !important;
         }
 
         @media (max-width: 1100px) {
@@ -422,13 +424,13 @@ export default function Header() {
             display: inline-flex;
           }
 
-          .hillcity-mobile-nav {
-            display: flex;
+          .hillcity-mobile-nav.is-open {
+            display: flex !important;
             flex-direction: column;
             padding: 14px 24px 24px;
             background: #ffffff;
             border-top: 1px solid #e7ebdd;
-            max-height: calc(100vh - 88px);
+            max-height: calc(100dvh - 88px);
             overflow-y: auto;
           }
 
