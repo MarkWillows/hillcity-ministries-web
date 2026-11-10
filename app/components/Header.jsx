@@ -4,7 +4,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { ChevronDown, Menu, X } from "lucide-react";
 
 const aboutLinks = [
@@ -29,15 +29,35 @@ const mainLinks = [
 
 export default function Header() {
   const pathname = usePathname();
+  const router = useRouter();
 
   const [mobileOpen, setMobileOpen] = useState(false);
   const [aboutOpen, setAboutOpen] = useState(false);
 
   const dropdownRef = useRef(null);
 
-  useEffect(() => {
+  function closeMenus() {
     setMobileOpen(false);
     setAboutOpen(false);
+  }
+
+  function handleMobileNavigation(event, href) {
+    event.preventDefault();
+
+    closeMenus();
+
+    // Navigate directly to the selected page.
+    router.push(href);
+
+    // Ensure the page starts at the top.
+    window.scrollTo({
+      top: 0,
+      behavior: "instant",
+    });
+  }
+
+  useEffect(() => {
+    closeMenus();
   }, [pathname]);
 
   useEffect(() => {
@@ -52,8 +72,7 @@ export default function Header() {
 
     function handleEscape(event) {
       if (event.key === "Escape") {
-        setAboutOpen(false);
-        setMobileOpen(false);
+        closeMenus();
       }
     }
 
@@ -76,12 +95,11 @@ export default function Header() {
       key={item.href}
       href={item.href}
       className={
-        pathname === item.href ? "nav-link active" : "nav-link"
+        pathname === item.href
+          ? "nav-link active"
+          : "nav-link"
       }
-      onClick={() => {
-        setMobileOpen(false);
-        setAboutOpen(false);
-      }}
+      onClick={closeMenus}
     >
       {item.label}
     </Link>
@@ -111,10 +129,7 @@ export default function Header() {
         <Link
           href="/"
           aria-label="Hillcity International Ministries Home"
-          onClick={() => {
-            setMobileOpen(false);
-            setAboutOpen(false);
-          }}
+          onClick={closeMenus}
           style={{
             display: "flex",
             alignItems: "center",
@@ -136,6 +151,7 @@ export default function Header() {
           />
         </Link>
 
+        {/* DESKTOP NAVIGATION */}
         <nav
           className="hillcity-desktop-nav"
           aria-label="Main navigation"
@@ -159,6 +175,7 @@ export default function Header() {
               onClick={() => setAboutOpen((open) => !open)}
             >
               About Hillcity
+
               <ChevronDown
                 size={15}
                 style={{
@@ -184,7 +201,7 @@ export default function Header() {
                         ? "hillcity-dropdown-link active"
                         : "hillcity-dropdown-link"
                     }
-                    onClick={() => setAboutOpen(false)}
+                    onClick={closeMenus}
                   >
                     {item.label}
                   </Link>
@@ -196,11 +213,14 @@ export default function Header() {
           {mainLinks.slice(1).map(renderNavLink)}
         </nav>
 
+        {/* MOBILE MENU BUTTON */}
         <button
           type="button"
           className="hillcity-mobile-toggle"
           aria-label={
-            mobileOpen ? "Close navigation" : "Open navigation"
+            mobileOpen
+              ? "Close navigation"
+              : "Open navigation"
           }
           aria-expanded={mobileOpen}
           aria-controls="hillcity-mobile-navigation"
@@ -209,17 +229,30 @@ export default function Header() {
             setAboutOpen(false);
           }}
         >
-          {mobileOpen ? <X size={25} /> : <Menu size={25} />}
+          {mobileOpen ? (
+            <X size={25} />
+          ) : (
+            <Menu size={25} />
+          )}
         </button>
       </div>
 
+      {/* MOBILE NAVIGATION */}
       {mobileOpen && (
         <nav
           id="hillcity-mobile-navigation"
           className="hillcity-mobile-nav"
           aria-label="Mobile navigation"
         >
-          {renderNavLink(mainLinks[0])}
+          <Link
+            href="/"
+            className="nav-link"
+            onClick={(event) =>
+              handleMobileNavigation(event, "/")
+            }
+          >
+            Home
+          </Link>
 
           <button
             type="button"
@@ -229,9 +262,13 @@ export default function Header() {
                 : "nav-link hillcity-mobile-about"
             }
             aria-expanded={aboutOpen}
-            onClick={() => setAboutOpen((open) => !open)}
+            aria-controls="hillcity-mobile-submenu"
+            onClick={() =>
+              setAboutOpen((open) => !open)
+            }
           >
             About Hillcity
+
             <ChevronDown
               size={17}
               style={{
@@ -244,16 +281,25 @@ export default function Header() {
           </button>
 
           {aboutOpen && (
-            <div className="hillcity-mobile-submenu">
+            <div
+              id="hillcity-mobile-submenu"
+              className="hillcity-mobile-submenu"
+            >
               {aboutLinks.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="hillcity-mobile-submenu-link"
-                  onClick={() => {
-                    setMobileOpen(false);
-                    setAboutOpen(false);
-                  }}
+                  className={
+                    pathname === item.href
+                      ? "hillcity-mobile-submenu-link active"
+                      : "hillcity-mobile-submenu-link"
+                  }
+                  onClick={(event) =>
+                    handleMobileNavigation(
+                      event,
+                      item.href
+                    )
+                  }
                 >
                   {item.label}
                 </Link>
@@ -261,7 +307,25 @@ export default function Header() {
             </div>
           )}
 
-          {mainLinks.slice(1).map(renderNavLink)}
+          {mainLinks.slice(1).map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={
+                pathname === item.href
+                  ? "nav-link active"
+                  : "nav-link"
+              }
+              onClick={(event) =>
+                handleMobileNavigation(
+                  event,
+                  item.href
+                )
+              }
+            >
+              {item.label}
+            </Link>
+          ))}
         </nav>
       )}
 
@@ -402,14 +466,18 @@ export default function Header() {
           }
 
           .hillcity-mobile-submenu-link {
-            padding: 11px 12px;
+            display: block;
+            padding: 12px;
             color: #31551b;
             font-size: 14px;
             text-decoration: none;
+            border-bottom: 1px solid #e7ebdd;
           }
 
+          .hillcity-mobile-submenu-link.active,
           .hillcity-mobile-submenu-link:hover {
             color: #78923a;
+            font-weight: 600;
           }
         }
       `}</style>
