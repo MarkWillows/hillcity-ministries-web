@@ -275,25 +275,16 @@ export default function HomePage() {
             </h3>
 
             <p>
-              Foyin and Peace Bamidele are a husband-and-wife
-              ministry team who co-founded Hillcity International
-              Ministries in 2023, united by a shared passion
-              for proclaiming the supremacy of Jesus Christ.
+              Pastors Foyin and Peace Bamidele are passionate
+              about proclaiming the supremacy of Jesus Christ
+              and helping believers discover their identity,
+              inheritance, and ability in Him.
             </p>
 
             <p>
-              Peace has served as an ordained minister since
-              2019. Together, they help believers discover
-              their identity, inheritance, and ability in
-              Christ through sound biblical teaching,
-              discipleship, and spiritual growth.
-            </p>
-
-            <p>
-              Their ministry also extends to evangelism
-              and compassionate outreach, including
-              serving people experiencing homelessness
-              across Atlanta.
+              Through biblical teaching, discipleship, and
+              compassionate outreach, they are committed to
+              sharing God's love and transforming lives.
             </p>
 
             <Link
