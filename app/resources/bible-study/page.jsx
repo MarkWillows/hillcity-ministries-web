@@ -16,6 +16,13 @@ export const metadata = {
 
 const resources = [
   {
+    title: "Evangelism Training",
+    description:
+      "A practical training resource designed to equip believers with biblical principles and effective approaches for sharing the gospel.",
+    file: "Evangelism Training - HillCity International Ministries.pdf",
+    pages: null,
+  },
+  {
     title: "Trust in God",
     description:
       "Learn to trust God's Word, rest in His promises, and depend on Him in every season.",
