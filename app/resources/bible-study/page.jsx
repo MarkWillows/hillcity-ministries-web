@@ -19,7 +19,7 @@ const resources = [
     title: "Evangelism Training",
     description:
       "A practical training resource designed to equip believers with biblical principles and effective approaches for sharing the gospel.",
-    file: "Evangelism Training - HillCity International Ministries.pdf",
+    file: "Evangelism Training - Hillcity International Ministries.pdf",
     pages: null,
   },
   {
@@ -85,8 +85,12 @@ export default function BibleStudyResourcesPage() {
     <main className="bible-resources-page">
       <section className="bible-resources-hero">
         <div className="container centered">
-          <span className="eyebrow">FREE SPIRITUAL RESOURCES</span>
+          <span className="eyebrow">
+            FREE SPIRITUAL RESOURCES
+          </span>
+
           <h1>Sermon Notes & Bible Study Materials</h1>
+
           <p>
             Explore Scripture-based teachings to strengthen
             your faith and deepen your relationship with
@@ -98,7 +102,10 @@ export default function BibleStudyResourcesPage() {
       <section className="bible-resources-section">
         <div className="container">
           <div className="bible-resources-top">
-            <Link href="/resources" className="bible-resources-back">
+            <Link
+              href="/resources"
+              className="bible-resources-back"
+            >
               <ArrowLeft size={17} />
               Back to Resources
             </Link>
@@ -111,7 +118,8 @@ export default function BibleStudyResourcesPage() {
           <div className="bible-resources-grid">
             {resources.map((resource) => {
               const pdfUrl =
-                "/resources/" + encodeURIComponent(resource.file);
+                "/resources/" +
+                encodeURIComponent(resource.file);
 
               return (
                 <article
@@ -129,14 +137,18 @@ export default function BibleStudyResourcesPage() {
                   </div>
 
                   <h2>{resource.title}</h2>
+
                   <p>{resource.description}</p>
 
                   <div className="bible-resource-meta">
                     <BookOpen size={15} />
+
                     <span>
                       {resource.pages
                         ? `${resource.pages} ${
-                            resource.pages === 1 ? "page" : "pages"
+                            resource.pages === 1
+                              ? "page"
+                              : "pages"
                           }`
                         : "Sermon notes"}
                     </span>
