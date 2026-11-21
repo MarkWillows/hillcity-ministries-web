@@ -138,13 +138,13 @@ export default function ResourcesPage() {
                 your personal study of God's Word.
               </p>
 
-<Link
-  href="/resources/bible-study"
-  className="resources-card-link"
->
-  Explore Bible Study Resources
-  <ArrowRight size={17} />
-</Link>
+              <Link
+                href="/resources/notes"
+                className="resources-card-link"
+              >
+                Explore Bible Study Resources
+                <ArrowRight size={17} />
+              </Link>
             </article>
 
             <article className="resources-card">
