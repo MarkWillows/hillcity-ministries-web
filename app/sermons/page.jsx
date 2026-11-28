@@ -83,7 +83,7 @@ function getSoundcloudEmbed(url) {
     "&auto_play=false" +
     "&hide_related=true" +
     "&show_comments=false" +
-    "&show_user=true" +
+    "&show_user=false" +
     "&show_reposts=false" +
     "&show_teaser=true" +
     "&visual=false"
